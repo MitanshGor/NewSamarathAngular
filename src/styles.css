@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Oxygen&family=Roboto+Slab:wght@300&display=swap');
+*,*:after,*:before
+{
+    border:0px;
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+::selection {
+    color: none;
+    background: none;
+}
+:root{
+    --header-bg: #f1f7fc;
+    --header-text:#263378;
+    --header-sub-text:#4A59AA;
+    font-size:17px;
+    box-sizing: border-box;
+    border:0px;
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}

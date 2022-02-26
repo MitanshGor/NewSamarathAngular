@@ -1,0 +1,99 @@
+
+<section class="body">
+    <div class="hero-img">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block  w-100" src="../../assets/images/newSamarath.png" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>NEW SAMARATH ENGLISH H/S SCHOOL</h1>
+                    <p>PRE-PRIMARY | PRIMARY | HIGH SCHOOL | HIGHER SECONDARY </p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class=" about-us ">
+      <div class="heading">ABOUT US</div>
+      <ul>
+            <li>Institution is established in 1980 with great pioneers of Late Smt. T.C. Mahadevia and Late Shri Shri Raju S. Mahadevia.</li>
+
+            <li>Run with efficiency till this date the school feels proud to host Std. 10th, 12th Science and 12th Commerce every year to the board Examination.</li>
+
+            <li>Undoubtedly the school is begins with Kinder Garten fully air conditioned class rooms, display boards and well equipped learning patterns – Timings 9-00 a.m. to 12-00 noon.</li>
+
+            <li> Primary section of our institution is basically a concrete platform for a child who can nourish and learn to develop as a better citizen.</li>
+
+            <li>The school timing for this section is from 12-30 noons to 5-20 p.m. class 1 to 7.</li>
+
+            <li>The high school and higher secondary sections of this institution is well known for its alleviating preserve on their respective subjects. </li>
+
+            <li> Guided by experienced and well qualified faculty members are our added feature.</li>
+
+            <li> Purely under Gujarat Secondary and Higher Secondary Education Board’s rule. </li>
+
+            <li> We allocated every enrolled student to appear the board examination without the fear concept.</li>
+
+            <li>The school is also a host of conducting the Board Examination for Std. X and XII-Science, Commerce and Arts streams CENTRES.</li>
+
+            <li>We wish to bear a banner “SOLUTION TO ALL LEARNINGS.”</li>
+
+      </ul>
+      <a class="edit-btn office" href="">Edit Details</a>
+
+    </div>
+    <div class="office section">
+      <div class="heading">Office Bearer</div>
+      <div class="office">
+        <div class="office1" *ngFor="let book of office1;let indexOfelement=index;">
+            <!-- <div class="office_person" >
+                <img src="">
+                <div>
+                  <div class="centering">
+                    <h1>Jap Purohit</h1>
+                    <p>Executive Director</p>
+                  </div>
+                </div>
+            </div> -->
+            <app-office-bearer-image-component></app-office-bearer-image-component>
+        </div>
+        <div class="office2"  *ngFor="let book of office2;">
+
+
+        </div>
+        <a class="edit-btn office" href="">Edit Details</a>
+      </div>
+    </div>
+    <div class="vision section">
+      <div class="heading">Vision, Mission, Beliefs & Objectives of School</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis elementum neque, sit amet molestie nisl pharetra in. Suspendisse hendrerit consequat metus, id venenatis urna elementum vel. Fusce fringilla magna enim, sed dignissim turpis laoreet ac. Curabitur tincidunt urna eu nunc tristique, vitae vehicula augue sollicitudin. Nullam eget vehicula odio. Vivamus ultricies dolor ex, ac sagittis tortor cursus nec. Praesent neque risus, gravida vitae nisi vitae, scelerisque venenatis dolor. Nunc quis mi vitae ante lobortis dignissim. Mauris felis risus, euismod quis erat non, mollis rutrum enim. Nam posuere enim velit, ut fermentum eros malesuada a.
+      </p>
+    </div>
+    <div class="environment section">
+      <div class="heading">Environment Responsibility</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis elementum neque, sit amet molestie nisl pharetra in. Suspendisse hendrerit consequat metus, id venenatis urna elementum vel. Fusce fringilla magna enim, sed dignissim turpis laoreet ac. Curabitur tincidunt urna eu nunc tristique, vitae vehicula augue sollicitudin. Nullam eget vehicula odio. Vivamus ultricies dolor ex, ac sagittis tortor cursus nec. Praesent neque risus, gravida vitae nisi vitae, scelerisque venenatis dolor. Nunc quis mi vitae ante lobortis dignissim. Mauris felis risus, euismod quis erat non, mollis rutrum enim. Nam posuere enim velit, ut fermentum eros malesuada a.
+      </p>
+    </div>
+    <div class="contactus section">
+      <div class="heading">Contact us</div>
+      <form>
+        <div class="form-group">
+          <!-- <label for="exampleFormControlInput1">Name</label> -->
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name">
+        </div>
+        <div class="form-group">
+          <!-- <label for="exampleFormControlInput1">Email address</label> -->
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <!-- <label for="exampleFormControlTextarea1">Enter Message </label> -->
+          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="message" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary ">Submit</button>
+      </form>
+    </div>
+</section>
+
