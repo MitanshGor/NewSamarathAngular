@@ -1,0 +1,95 @@
+.hero-img {
+  display: none;
+  /* border:3px solid red; */
+}
+.carousel-caption {
+  margin-bottom: 2rem;
+}
+.carousel-caption h1 {
+  font-size: 3.9285rem;
+  text-shadow: 2px 2px rgb(24, 23, 23);
+}
+.carousel-caption p {
+  font-size: 1.58rem;
+}
+.hero-img img {
+  height: 85vh;
+}
+/*  ALL SECTIONS COMMON */
+
+.section {
+  padding: 7rem 2rem 0 2rem;
+}
+.about-us {
+  padding: 3rem 2rem 0rem 0;
+}
+.heading {
+  text-align: center;
+  font-size: 1.6rem;
+
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--header-text);
+}
+
+
+.office_person {
+  width: 100%;
+  max-width: 270px;
+  min-width: 190px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+}
+img {
+  transition-duration: 0.35s;
+  object-fit: cover;
+  transition-timing-function: linear;
+  width: 230px;
+  height: 230px;
+
+  filter: drop-shadow(3px 3px 2px gray) grayscale(0%);
+}
+img:hover {
+  filter: drop-shadow(4px 4px 2px gray) grayscale(40%);
+  transform: scale(1.1);
+  /* overflow: hidden; */
+}
+
+.office_person div {
+  position: absolute;
+  /* top: 85%; */
+  width: 90%;
+  bottom: -5%;
+  border: 1px solid white;
+  left: 50%;
+  background-color:  rgba(0, 0, 0, 0.39);
+  color: white;
+  transform: translate(-50%, -50%);
+}
+.office_person h1 {
+  font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.office_person p {
+  font-size: 1rem;
+  font-weight: 450;
+
+}
+.office_person p ,
+.office_person h1 {
+    text-align: center;
+    /* border: 10px  solid red; */
+    background-color:#2a2c3850;
+    margin: 0;
+
+}
+.edit-btn{
+  float: right;
+  text-decoration: none;
+  background-color: var(--header-text);
+  color: white;
+  padding: 0.3em  0.5em;
+}

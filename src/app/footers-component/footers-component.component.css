@@ -66,9 +66,10 @@ hr {
     width: 100%;
   }
 .copyright p{
-    margin-bottom: 1rem;
+    /* margin-bottom: 0rem; */
 }
 @media only screen and (min-width: 420px) {
+
 
     .links{
     max-width:500px;
@@ -79,15 +80,31 @@ hr {
 }
 @media only screen and (min-width: 800px) {
 
-    .container > div:nth-child(1) ,
+  .container > div:nth-child(1) ,
 .container > div:nth-child(1) > *{
-    width: 90%;
-    justify-content: space-evenly;
-        flex-direction: row;
-    }
-    .container{
-        width: 100%;
-    }
+  width:  95%;
+  justify-content: space-evenly;
+      flex-direction: row;
+  }
+  .container{
+    max-width: 100%;
+      width: 100vw;
+      /* border: 5px solid pink; */
+  }
+}
+@media only screen and (min-width: 950px) {
+
+  .container > div:nth-child(1) ,
+.container > div:nth-child(1) > *{
+  width:  75%;
+  justify-content: space-evenly;
+      flex-direction: row;
+  }
+  .container{
+    max-width: 100%;
+      width: 100vw;
+      /* border: 5px solid pink; */
+  }
 }
 /* .container a , .container .links a , p{
     color:var(--header-bg);

@@ -1,0 +1,30 @@
+
+.bodyDivision{
+  min-height:400px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  width: 100%;
+  text-transform: uppercase;
+  color: var(--header-text);
+  display:flex;
+  margin-bottom:2rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login{
+    /* margin-top: 40vh; */
+    width:100%;
+    max-width: 600px;
+    /* border:5px solid blue; */
+    margin:40px auto 20px auto;
+    padding : 1rem 2rem 1rem 2rem;
+    box-shadow: 20px 20px 90px 20px rgba(0, 0, 0, 0.13);
+    border-radius: 1rem;
+
+}

@@ -13,6 +13,16 @@
             </div>
           </div>
     </div>
+
+
+
+
+
+    <!-- ABOUT US !!!!!!!1 -->
+    <!-- ABOUT US !!!!!!!1 -->
+    <!-- ABOUT US !!!!!!!1 -->
+    <!-- ABOUT US !!!!!!!1 -->
+
     <div class=" about-us ">
       <div class="heading">ABOUT US</div>
       <ul>
@@ -42,27 +52,27 @@
       <a class="edit-btn office" href="">Edit Details</a>
 
     </div>
+
+
+
+    <!-- OFFICE BEARIERE !!!!!!!1 -->
+    <!-- OFFICE BEARIERE !!!!!!!1 -->
+    <!-- OFFICE BEARIERE !!!!!!!1 -->
+    <!-- OFFICE BEARIERE !!!!!!!1 -->
+
     <div class="office section">
       <div class="heading">Office Bearer</div>
       <div class="office">
-        <div class="office1" *ngFor="let book of office1;let indexOfelement=index;">
-            <!-- <div class="office_person" >
-                <img src="">
-                <div>
-                  <div class="centering">
-                    <h1>Jap Purohit</h1>
-                    <p>Executive Director</p>
-                  </div>
-                </div>
-            </div> -->
+        <div class="office1" >
+            <app-office-bearer-image-component class="app-office-bearer-image-component" *ngFor="let office of office1;let indexOfelement=index;"  [info]="office" ></app-office-bearer-image-component>
         </div>
-        <div class="office2"  *ngFor="let book of office2;">
-
-
+        <div class="office2" >
+          <app-office-bearer-image-component class="app-office-bearer-image-component"  *ngFor="let office of office2;" [info]="office" ></app-office-bearer-image-component>
         </div>
         <a class="edit-btn office" href="">Edit Details</a>
       </div>
     </div>
+
     <div class="vision section">
       <div class="heading">Vision, Mission, Beliefs & Objectives of School</div>
       <p>

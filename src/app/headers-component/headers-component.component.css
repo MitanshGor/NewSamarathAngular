@@ -8,10 +8,12 @@
         flex-direction: column;
         justify-content:center;
         align-items:center;
-
-
+        transition: 0.3s;
     }
+.mainDiv:hover{
 
+  background-color:#8e9bf825;
+}
                                             /* LEFT DIVISION IN HEADER   */
 .mainDiv .leftDiv , .mainDiv .leftDiv div{
     display:flex;
@@ -66,14 +68,15 @@
     flex-direction: column;
 }
 .mainDiv .leftDiv div  img{
-    width: 4rem;
+    width: 5rem;
     padding: 0.4rem;
 }
 .mainDiv .leftDiv div h1{
     padding: 0.3rem;
-    text-align:center;
+    text-align:left;
+    margin-top:4px;
     color:var(--header-text);
-    font-size:1.6rem;
+    font-size:1.4rem;
 }
 
 
