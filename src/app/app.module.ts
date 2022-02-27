@@ -1,3 +1,5 @@
+import { FacultyFacilityComponent } from './faculty-facility/faculty-facility.component';
+import { RouterModule } from '@angular/router';
 import { MainPageModuleModule } from './main-page-module/main-page-module.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +12,7 @@ import { ContactPageModule } from './contact-page/contact-page.module';
 import { ContactPageRoutingModule } from './contact-page/contact-page-routing.module';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { GalleryModule } from './gallery/gallery.module';
+import { FacultyFacilityModule } from './faculty-facility/faculty-facility.module';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,17 @@ import { GalleryModule } from './gallery/gallery.module';
     HeadersComponentComponent,
     FootersComponentComponent,
     LoginPageComponent,
+    FacultyFacilityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
      MainPageModuleModule,
      ContactPageModule,
-     GalleryModule
+     GalleryModule,
+     FacultyFacilityModule,
+
+    //  RouterModule.forRoot(apRoutes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
