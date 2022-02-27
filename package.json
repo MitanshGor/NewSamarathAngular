@@ -9,8 +9,9 @@
     "ng": "ng",
     "start": "node server.js",
     "server": "nodemon server.js",
+
     "heroku-postbuild": "npm install --only=dev && npm install && npm run build",
-    "build": "ng build",
+    "build": "ng build --target production --build-optimizer --vendor-chunk --prod --named-chunks false --sourcemaps false --output-hashing all",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
