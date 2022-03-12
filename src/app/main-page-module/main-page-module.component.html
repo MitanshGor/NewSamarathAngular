@@ -49,9 +49,21 @@
             <li>We wish to bear a banner “SOLUTION TO ALL LEARNINGS.”</li>
 
       </ul>
-      <a class="edit-btn office" href="">Edit Details</a>
-
+      <a class="edit-btn office" (click)="showModalDialog()" label="Show">Edit Details</a>
     </div>
+
+    <p-dialog header="Edit Detail About Us" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+        [draggable]="true" [resizable]="false" >
+
+
+
+              <angular-editor [placeholder]="'Enter text here...'"  [config]="config"  [(ngModel)]="htmlContent"></angular-editor>
+                <br>
+                <button  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+
+
+    </p-dialog>
+
 
 
 
@@ -64,14 +76,97 @@
       <div class="heading">Office Bearer</div>
       <div class="office">
         <div class="office1" >
-            <app-office-bearer-image-component class="app-office-bearer-image-component" *ngFor="let office of office1;let indexOfelement=index;"  [info]="office" ></app-office-bearer-image-component>
+            <app-office-bearer-image-component class="app-office-bearer-image-component" *ngFor="let office of office1;"  [info]="office" ></app-office-bearer-image-component>
         </div>
         <div class="office2" >
           <app-office-bearer-image-component class="app-office-bearer-image-component"  *ngFor="let office of office2;" [info]="office" ></app-office-bearer-image-component>
         </div>
-        <a class="edit-btn office" href="">Edit Details</a>
+        <a class="edit-btn office" (click)="showModalDialogForOfficeBearer()">Edit Office  Bearier Details</a>
       </div>
     </div>
+
+
+
+
+
+
+
+    <p-dialog header="Edit Detail Office Bearer" [(visible)]="displayModalOfficeBearer" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="true" [resizable]="false" >
+
+
+          <form class="container-fluid" [formGroup]="officeBearerForm">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Excutive Director Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirectorName" aria-describedby="emailHelp" placeholder="Enter Excutive Director Name">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Excutive Director Image</label>
+                <input type="file" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirector"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of excutive Director">
+                <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Director Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="DirectorName" aria-describedby="emailHelp" placeholder="Enter Director Name">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Director Image</label>
+                <input type="file" class="form-control" id="exampleInputEmail1" formControlName="Director"  aria-describedby="Director" accept=".jpeg, .png, .jpg" placeholder="Image of Director">
+                <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Principal Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="principalName" aria-describedby="emailHelp" placeholder="Enter Principal Name">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Principal Image</label>
+                <input type="file" class="form-control" id="exampleInputEmail1" formControlName="principal"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of principal">
+                <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Vice-Principal Director Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="vicePrincipalDirectorName" aria-describedby="emailHelp" placeholder="Enter Vice-Principal Director Name">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Vice-Principal Director Image</label>
+                <input type="file" class="form-control" id="exampleInputEmail1" formControlName="VicePrincipalDirector"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Vice-Principal Director">
+                <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Advisor Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="advisorName" aria-describedby="emailHelp" placeholder="Enter Advisor Name">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Advisor Image</label>
+                <input type="file" class="form-control" id="exampleInputEmail1" formControlName="advisor"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Advisor">
+                <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+            </div>
+
+            <button  (click)="OfficeBearerSubmit()"class="btn btn-primary">Submit</button>
+
+          </form>
+      </p-dialog>
+
+
+
+
+
 
     <div class="vision section">
       <div class="heading">Vision, Mission, Beliefs & Objectives of School</div>
@@ -106,3 +201,33 @@
     </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+  <!-- <h3 class="tex.t-left heading2">Form Group</h3><br> -->
+            <!-- <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">File</label>
+            <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" accept=".jpeg, .png, .jpg" placeholder="Enter Name">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Add image From Start</label>
+          </div>
+          <div class="form-check form-check-inline" style="margin-bottom: 1rem; margin-top: 1rem;">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Add Image From End</label>
+          </div> -->

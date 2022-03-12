@@ -1,0 +1,56 @@
+
+    <!-- <div class="heading">News Updates</div>
+    <div class="eventsGrid">
+       <a [routerLink]="['../news']">School Achivements</a>
+       <a [routerLink]="['studentAchivements']">Student Achivements</a>
+       <a [routerLink]="['circulars&Notices']">Circulars & Notices</a>
+       <a [routerLink]="['upcomingEvents']">Upcoming Events</a>
+       <a [routerLink]="['pressReleases']">Press Releases</a>
+    </div> -->
+    <!-- <app-list-of-news [item]="data"></app-list-of-news> -->
+    <p-dialog header="Edit Detail About Us" [(visible)]="displayModal1" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="true" [resizable]="false" >
+
+
+    <label for="exampleInputEmail1">Excutive Director Image</label>
+    <input type="file" class="form-control" id="exampleInputEmail1" style="padding: 0.375rem 0.75rem;border: 1px solid #ced4da;"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of excutive Director">
+   <br>
+            <button type="submit" class="btn btn-primary" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;"  (click)="aboutUsSubmit()">Submit</button>
+
+
+</p-dialog>
+
+<p-dialog header="Edit Detail About Us" [(visible)]="displayModal2" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="true" [resizable]="false" >
+
+
+    <label for="exampleInputEmail1">Excutive Director Image</label>
+    <input type="file" class="form-control" id="exampleInputEmail1" style="padding: 0.375rem 0.75rem;border: 1px solid #ced4da;"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of excutive Director">
+        <br>
+        <!-- <button  (click)="()"class="btn btn-primary">Submit</button> -->
+        <button type="submit" class="btn btn-primary" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;" (click)="aboutUsSubmit()">Submit</button>
+
+</p-dialog>
+
+
+    <div class="devider">
+      <div class="child">
+        <div class="heading">
+          Holidays and Vacation
+             <a class="buttonStyle"  (click)="updateData1()">Update</a>
+
+        </div>
+        <object scrolling="no"  src="https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf">
+          <embed  scrolling="no" width="100%" height="70%"  class="pdf" src="https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf"/>
+        </object>
+      </div>
+      <div class="child">
+        <div class="heading">
+          Fees Structures <a class="buttonStyle"  (click)="updateData2()">Update</a>
+        </div>
+
+        <object scrolling="no" src="https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf">
+          <embed  scrolling="no"  class="pdf" width="100%" height="70%" src="https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf"/>
+        </object>
+      </div>
+    </div>

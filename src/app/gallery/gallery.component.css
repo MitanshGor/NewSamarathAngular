@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Oxygen&family=Roboto+Slab:wght@300&display=swap');
 *,*:after,*:before
 {
@@ -83,7 +91,7 @@
   overflow: hidden;
   text-align: center;
   margin: 1rem 0 1rem 0;
-border: 2px solid red;
+/* border: 2px solid red; */
 }
 
   #photos > .img > img {
@@ -167,3 +175,5 @@ border: 2px solid red;
     }
   }
 
+
+  @import "node_modules/bootstrap/dist/css/bootstrap.css"

@@ -5,6 +5,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FacilityComponent } from './facility/facility.component';
 import { FacultyComponent } from './faculty/faculty.component';
+import { DialogModule } from 'primeng/dialog';
+import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -18,7 +22,10 @@ import { FacultyComponent } from './faculty/faculty.component';
     FandFPageRoutingModule,
     RouterModule,
     BrowserModule,
-    // RouterOutlet
+    DialogModule,
+    ButtonModule,
+    ToastModule,
+    RippleModule,
   ]
 })
 export class FacultyFacilityModule { }

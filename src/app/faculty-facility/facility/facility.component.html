@@ -1,5 +1,5 @@
 <div class="addBtn">
-  <a class="update" href="">Add</a>
+  <a class="update" (click)="showModalDialog()">Add</a>
 </div>
 <div class="facilities">
 
@@ -8,8 +8,8 @@
           <div class="title">
               <p class="heading">Science Lab</p>
               <div class="buttons">
-                  <a class="delete" href="">Delete</a>
-                  <a class="update" href="">Update</a>
+                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
+                <a class="update" href="">Update</a>
               </div>
           </div>
           <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
@@ -22,8 +22,8 @@
           <div class="title">
               <p class="heading">Science Lab</p>
               <div class="buttons">
-                  <a class="delete" href="">Delete</a>
-                  <a class="update" href="">Update</a>
+                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
+                <a class="update" href="">Update</a>
               </div>
           </div>
           <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
@@ -36,8 +36,8 @@
           <div class="title">
               <p class="heading">Science Lab</p>
               <div class="buttons">
-                  <a class="delete" href="">Delete</a>
-                  <a class="update" href="">Update</a>
+                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
+                <a class="update" href="">Update</a>
               </div>
           </div>
           <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
@@ -50,8 +50,8 @@
           <div class="title">
               <p class="heading">Science Lab</p>
               <div class="buttons">
-                  <a class="delete" href="">Delete</a>
-                  <a class="update" href="">Update</a>
+                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
+          <a class="update" href="">Update</a>
               </div>
           </div>
           <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
@@ -61,3 +61,58 @@
 </div>
 
 
+
+
+<p-dialog header="Edit Detail About Us" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="true" [resizable]="false" >
+
+      <form>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirectorName" aria-describedby="emailHelp" placeholder="Name of Facility">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Image</label>
+          <input type="file" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirector"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Facility">
+          <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Description</label>
+          <textarea maxlength="550" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirector"  aria-describedby="excutiveDirector" placeholder="Discription of the Facility"></textarea>
+          <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+
+      </form>
+
+        <br>
+        <button  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+
+
+</p-dialog>
+
+
+
+
+
+
+
+<p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div class="p-flex p-flex-column" style="flex: 1">
+          <div class="p-text-center">
+              <!-- <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i> -->
+              <h4>{{message.summary}}</h4>
+              <p>{{message.detail}}</p>
+          </div>
+          <div class="p-grid p-fluid">
+              <div class="p-col-6">
+                  <button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-danger"></button>
+              </div>
+              <div class="p-col-6">
+                  <button type="button"pButton (click)="onReject()" label="No" class="p-button-info"></button>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-toast>

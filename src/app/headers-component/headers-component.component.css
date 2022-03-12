@@ -1,5 +1,5 @@
 
-                                                        /* MAIN DIVISION IN HEADER   */
+                                                     /* MAIN DIVISION IN HEADER   */
 .mainDiv{
     display:flex;
     background-color:var(--header-bg);
@@ -11,13 +11,11 @@
         transition: 0.3s;
     }
 .mainDiv:hover{
-
   background-color:#8e9bf825;
 }
                                             /* LEFT DIVISION IN HEADER   */
 .mainDiv .leftDiv , .mainDiv .leftDiv div{
     display:flex;
-
     width:100%;
     justify-content:center;
     align-items:center;

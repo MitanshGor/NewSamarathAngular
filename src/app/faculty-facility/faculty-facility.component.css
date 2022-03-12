@@ -40,6 +40,15 @@ i.headings2 > a{
     background-color: var(--header-text);
     color: var(--header-bg);
   }
+  a{
+    transition:0.3s;
+  }
+  a:hover{
+     /* border: 1px solid red; */
+     background-color:#414f9662;
+     color: var(--header-bg);
+     border-radius: 0.4rem;
+  }
 
   @media only screen and (min-width: 420px) {
 

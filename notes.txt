@@ -1,0 +1,14 @@
+https://openbase.com/js/ngx-text-editor
+https://openbase.com/js/@kolkov/angular-editor
+
+
+
+https://stackblitz.com/edit/primeng-dialog-demo
+
+
+
+form datatype :
+
+file
+check_box
+input type
