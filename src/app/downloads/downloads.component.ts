@@ -27,18 +27,12 @@ export class DownloadsModuleComponent implements OnInit  {
   clickeDataPdf : any;
   newsHeading : string ="";
   selectedNode: any;
-
+  std=""
+  year=""
   almanacForm : any;
   holidayAndVacation: any;
-  // private safePipe: SafePipe = new SafePipe(this.domSanitizer);
   feesStructure:any;
   QuesPapaer:any;
-  // constructor(private safePipe1: SafePipe, private domSanitizer: DomSanitizer) {
-  // }
-
-  // ngOnInit(): void {
-  //   this.itsSafe = this.safePipe1.transform('< >Hi</ h1>', 'html');
-  // }
 
 
   ngOnInit(): void {
@@ -200,10 +194,27 @@ export class DownloadsModuleComponent implements OnInit  {
 
     this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(data);
     this.newsHeading=heading;
-
     // alert(data)
     // alert(heading)
   }
+
+  clickedBtnDiff(data : string ,heading:string ,std:string , year:string){
+
+
+    this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(data);
+    this.newsHeading=heading;
+    this.std = std
+    this.year=year;
+
+  }
+
+
+  displayModal: boolean = false;
+  showModalDialog() {
+    this.displayModal = true;
+  }
+
+
 
 }
 

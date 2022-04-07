@@ -1,9 +1,11 @@
+import { Admin } from './../../interfaces/admin';
 import { Component, ElementRef } from '@angular/core';
 import { Renderer2, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PrimeNGConfig } from 'primeng/api';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'main-page-module',
@@ -57,10 +59,17 @@ officeBearerForm = new FormGroup({
 
 
 
-constructor(private primengConfig: PrimeNGConfig) {}
+constructor(private primengConfig: PrimeNGConfig ,private adminService: AdminService) {}
 
 ngOnInit() {
   this.primengConfig.ripple = true;
+
+  this.adminService.getAllAdmin().subscribe(res=>{
+    console.log(res);
+  },err=>{
+
+  })
+
 }
 
 displayModal: boolean = false;
