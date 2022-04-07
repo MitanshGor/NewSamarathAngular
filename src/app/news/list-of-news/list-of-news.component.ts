@@ -1,4 +1,5 @@
-import { NewsModel } from './../../news-model';
+import { NewsModel } from './../../../interfaces/news-model';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { PrimeNGConfig, MessageService } from 'primeng/api';
 

@@ -12,4 +12,15 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  displayModal =false;
+  forgotPasswordMethod(){
+
+    this.displayModal=true;
+  }
+
+  forgotPasswordFormSubmit(){
+
+  }
+
+
 }

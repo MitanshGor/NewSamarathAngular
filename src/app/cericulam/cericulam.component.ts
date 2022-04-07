@@ -1,4 +1,4 @@
-import { NewsSubModel } from '../news-sub-model';
+import { NewsSubModel } from '../../interfaces/news-sub-model';
 import { Component, ElementRef } from '@angular/core';
 import { Renderer2, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';

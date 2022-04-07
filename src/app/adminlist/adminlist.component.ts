@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
-  selector: 'app-faculty',
-  templateUrl: './faculty.component.html',
-  styleUrls: ['./faculty.component.css'],
+  selector: 'app-adminlist',
+  templateUrl: './adminlist.component.html',
+  styleUrls: ['./adminlist.component.css'],
   providers: [MessageService]
 })
-export class FacultyComponent implements OnInit {
-
-
+export class AdminlistComponent implements OnInit {
 
   constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService) { }
 
@@ -17,9 +15,14 @@ export class FacultyComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
 
+  currentDate:Date =  new Date();
   displayModal: boolean = false;
+
   showModalDialog() {
+
+    this.currentDate = new Date((new Date()).toISOString().substring(0,10));
     this.displayModal = true;
+
   }
 
   displayModalOfficeBearer: boolean = false;
@@ -29,24 +32,26 @@ export class FacultyComponent implements OnInit {
 
   showConfirm() {
     this.messageService.clear();
-    this.messageService.add({ key: 'c', sticky: true, severity: 'error', summary: 'Are you sure?', detail: 'Confirm to proceed' });
+    this.messageService.add({key: 'c', sticky: true, severity:'error', summary:'Are you sure?', detail:'Confirm to proceed'});
   }
 
   onConfirm() {
-    this.messageService.clear('c');
+  this.messageService.clear('c');
   }
   onReject() {
-    this.messageService.clear('c');
+  this.messageService.clear('c');
   }
 
   clear() {
-    this.messageService.clear();
+  this.messageService.clear();
   }
 
 
 
-  aboutUsSubmit() {
+  aboutUsSubmit()
+  {
 
   }
+
 
 }

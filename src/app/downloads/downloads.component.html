@@ -1,0 +1,41 @@
+<!-- 2o2
+<h5>Multiple</h5>
+<p-treeSelect
+  [(ngModel)]="selectedNode"
+  [options]="nodes2"
+  [metaKeySelection]="true"
+  selectionMode="single"
+  placeholder="Select Item"
+></p-treeSelect> -->
+
+<div class="heading">News Updates</div>
+        <div class="eventsGrid">
+          <a (click)="clickedBtn(almanacForm , 'Almanac Form')">Almanac Form</a>
+          <a (click)="clickedBtn(holidayAndVacation , 'Holidays and Vacation')">Holidays and Vacation</a>
+          <a (click)="clickedBtn(feesStructure , 'Fees Structure')">Fees Structure</a>
+          <div class="parent">
+            <div class="menu" tabindex="0">Question Paper</div>
+            <ul class="dropdown open">
+              <li class="dropdown-submenu"  *ngFor='let d of QuesPapaer;' >
+                {{d.std}}
+                  <ul class="dropdown" >
+                    <li  *ngFor='let temp of d.data;'><button style="border: 2px solid red;"  (click)="clickedBtn(temp.link , 'Question Paper of std = '+d.std+' ('+temp.year+')')">{{temp.year}} | {{temp.link}}</button></li>
+                  </ul>
+                </li>
+            </ul>
+          </div>
+
+        </div>
+
+<div  class="child">
+  <div class="heading">
+    {{newsHeading}}
+  </div>
+  <object scrolling="no">
+      <iframe   width="100%" height="100%"  class="pdf" [src]="clickeDataPdf" ></iframe>
+  </object>
+</div>
+
+
+
+

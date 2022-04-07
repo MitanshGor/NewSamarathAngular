@@ -10,6 +10,8 @@ import { FacilityComponent } from './faculty-facility/facility/facility.componen
 import { NewsModuleComponent } from './news/news.component';
 import { PopupFormComponent } from './popup-form/popup-form.component';
 import { CericulamComponent } from './cericulam/cericulam.component';
+import { AdminlistComponent } from './adminlist/adminlist.component';
+import { DownloadsModuleComponent } from './downloads/downloads.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -27,7 +29,9 @@ const routes: Routes = [
   ]},
 
   {path:"news",component:NewsModuleComponent},
+  {path:"downloads",component:DownloadsModuleComponent},
   {path:"cericulam",component:CericulamComponent},
+  {path:"adminList",component:AdminlistComponent},
 
 ];
 

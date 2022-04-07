@@ -21,6 +21,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewsModule } from './news/news.module';
 import { CericulamModule } from './cericulam/cericulam.module';
+import { AdminlistComponent } from './adminlist/adminlist.component';
+import { DownloadsModule } from './downloads/downloads.module';
+import { DownloadsModuleComponent } from './downloads/downloads.component';
+import { AuthBehaviourServicePipe } from './pipe/auth-behaviour-service.pipe';
 
 @NgModule({
   declarations: [
@@ -30,12 +34,16 @@ import { CericulamModule } from './cericulam/cericulam.module';
     LoginPageComponent,
     FacultyFacilityComponent,
     PopupFormComponent,
-    NewsModuleComponent
+    NewsModuleComponent,
+    DownloadsModuleComponent,
+    AdminlistComponent,
+    AuthBehaviourServicePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
      MainPageModuleModule,
+     DownloadsModule,
      CericulamModule,
      ContactPageModule,
      GalleryModule,
