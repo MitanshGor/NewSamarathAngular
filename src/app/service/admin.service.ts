@@ -39,6 +39,13 @@ export class AdminService {
   }
 
 
+
+  login(data:any):Observable<any>
+  {
+    return this.httpClient.post(environment.admin_api_url+ "authenticateAdmin",data)
+  }
+
+
   forgotPassword(data:any):Observable<any>
   {
     return this.httpClient.post(environment.admin_api_url+"/forgotPassword",data)

@@ -10,16 +10,14 @@ export class PublicService {
 
 
 
-  login(data:any):Observable<any>
-  {
-    return this.httpClient.post(environment.public_api_url,data)
-  }
-
 
   forgotPassword(data:any):Observable<any>
   {
     return this.httpClient.post(environment.public_api_url+"/forgotPassword",data)
   }
+
+
+
 
   // updatePassword(data:any):Observable<any>
   // {

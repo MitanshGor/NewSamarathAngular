@@ -6,11 +6,13 @@ import { DOCUMENT } from '@angular/common';
 import { regexData } from 'src/assets/regex';
 import { Workbook } from 'exceljs';
 import * as fs from 'file-saver';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'main-page-module',
   templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.css']
+  styleUrls: ['./contact-page.component.css'],
+  providers: [MessageService]
 })
 export class ContactPageComponent {
 
@@ -30,7 +32,7 @@ export class ContactPageComponent {
 
   contactForm: FormGroup;
 
-  constructor(fb: FormBuilder , private adminService :  AdminService) {
+  constructor(fb: FormBuilder , private adminService :  AdminService , private messageService : MessageService) {
 
           this.contactForm = new FormGroup({
             name: new FormControl("", Validators.compose([
@@ -103,6 +105,8 @@ export class ContactPageComponent {
           fs.saveAs(blob, a+'.xlsx');
         })
     },error=>{
+      this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: error });
+      console.log(error)
     })
 
     }

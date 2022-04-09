@@ -28,7 +28,6 @@
           <td>{{item.updatedAt | date}}</td>
           <td><a type="button" pButton pRipple (click)="showConfirm(item._id)" label="Delete"  class="delete-btn"  class="p-button-danger"  ></a>
             <a pButton pRipple style="margin-left:20px;"   (click)="updateMethod(item._id)" label="Update"  class="p-button-info" ></a>
-
           </td>
         </tr>
       </tbody>
@@ -88,15 +87,9 @@
           <p id="emailHelp"  *ngIf="addAdmin.get('phonenumber')?.touched && addAdmin.get('phonenumber')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Mobile Number</span></p>
 
         </div>
-
-
         <br>
-        <button [disabled]="!addAdmin.valid" (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
-
+        <button [disabled]="!addAdmin.valid" (click)="updateAdminById()"class="btn btn-primary">Submit</button>
       </form>
-
-
-
 </p-dialog>
 
 

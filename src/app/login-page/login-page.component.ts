@@ -1,10 +1,14 @@
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { regexData } from 'src/assets/regex';
+import { AdminService } from '../service/admin.service';
+import { PublicService } from '../service/public.service';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
+  providers: [MessageService]
 })
 export class LoginPageComponent {
 
@@ -13,13 +17,13 @@ export class LoginPageComponent {
   forgotForm: FormGroup;
 
 
-  constructor(fb: FormBuilder ) {
+  constructor(fb: FormBuilder , private adminService : AdminService, private messageService: MessageService) {
 
     this.loginForm = new FormGroup({
-      email: new FormControl("", Validators.compose([
+      emailID: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.emailRegex)])),
-      password: new FormControl("", Validators.compose([
+        password: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.passwordRegex)])),
   });
@@ -55,6 +59,23 @@ export class LoginPageComponent {
 
   forgotPasswordFormSubmit(){
 
+
+
+    this.adminService.forgotPassword(this.forgotForm.value).subscribe(res=>{
+
+        console.log(res)
+        if (res.status == 200) {
+          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
+        }
+        else if(res.status == -2){
+          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Warning', detail: res.message });
+        }
+        else{
+          this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Error', detail: res.message });
+        }
+      }, err => {
+        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
+      })
   }
 
   OnFormSubmit(){
@@ -62,5 +83,29 @@ export class LoginPageComponent {
 
   }
 
+
+
+  loginDataDetails(){
+
+    // alert("Here")
+    console.log(this.loginForm.value)
+    this.adminService.login(this.loginForm.value).subscribe(res => {
+
+      console.log(res)
+      if (res.status == 200) {
+        console.log(res)
+        localStorage.setItem("authToken",JSON.stringify(res.data))
+        // alert("login done");
+        // this..authToken.next(resp.data.authToken)
+        this.messageService.add({ key: 'toast', severity: 'success', summary: 'Successful Login', detail: res.message });
+      }
+      else{
+        this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Invalid Details', detail: res.message });
+      }
+    }, err => {
+      this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
+    })
+
+    }
 
 }

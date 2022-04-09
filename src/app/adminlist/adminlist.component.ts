@@ -23,7 +23,9 @@ export class AdminlistComponent implements OnInit {
 
   constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService, private adminService: AdminService) {
 
+
     this.addAdmin = new FormGroup({
+      _id : new FormControl(""),
       fullName: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.nameRegex)])),
@@ -63,22 +65,6 @@ export class AdminlistComponent implements OnInit {
       numbers.push(trimmed.substr(6, 4));
     this.addAdmin.controls["phonenumber"].setValue(numbers.join('-'));
   }
-
-  displayModalUpdate = false;
-  updateMethod(id:string) {
-
-
-    var data  = this.listOfAdmins.find(x=>x._id == id)
-    this.addAdmin.controls['emailID'].setValue(data.emailID);
-    this.addAdmin.controls['fullName'].setValue(data.fullName);
-    this.addAdmin.controls['phonenumber'].setValue(data.phonenumber);
-    this.addAdmin.controls['password'].setValue(data.password);
-    this.currentDateUpdated = new Date((new Date()).toISOString().substring(0, 10));
-    this.displayModalUpdate = true;
-
-
-  }
-
 
 
 
@@ -143,12 +129,47 @@ export class AdminlistComponent implements OnInit {
 
 
 
+  displayModalUpdate = false;
+  updateMethod(id:string) {
+
+
+    var data  = this.listOfAdmins.find(x=>x._id == id)
+    this.addAdmin.controls["_id"].setValue(id)
+    this.addAdmin.controls['emailID'].setValue(data.emailID);
+    this.addAdmin.controls['fullName'].setValue(data.fullName);
+    this.addAdmin.controls['phonenumber'].setValue(data.phonenumber);
+    // this.addAdmin.controls['password'].setValue(data.password==null);
+    this.currentDateUpdated = new Date((new Date()).toISOString().substring(0, 10));
+    this.displayModalUpdate = true;
+
+
+  }
+
+
+  updateAdminById() {
+
+
+    this.adminService.getAllAdmin().subscribe(res => {
+      this.listOfAdmins = res.data;
+      console.log(this.listOfAdmins)
+      // alert(res.message)
+      if (res.status != 200) {
+        this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Error', detail: res.message });
+      }
+    }, err => {
+      this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
+    })
+  }
+
+
+
   aboutUsSubmit() {
     console.log(this.addAdmin.value)
     this.adminService.addAdmin(this.addAdmin.value).subscribe(res => {
 
-
+      console.log(res)
       if (res.status == -1) {
+
         this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Error', detail: res.message });
       }
       else if (res.status == 200) {
@@ -159,6 +180,7 @@ export class AdminlistComponent implements OnInit {
         this.listOfAdmins.push(this.addAdmin.value)
       }
       else {
+        console.log("red");
         this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
       }
 
