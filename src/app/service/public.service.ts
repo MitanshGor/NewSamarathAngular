@@ -18,8 +18,10 @@ export class PublicService {
 
 
 
+  contactUs(data:any):Observable<any>{
 
-  // updatePassword(data:any):Observable<any>
+    return this.httpClient.post(environment.public_api_url + "/contactUs",data)
+  }  // updatePassword(data:any):Observable<any>
   // {
   //   return this.httpClient.post(environment.common_api_url+"/updatePassword",data)
   // }

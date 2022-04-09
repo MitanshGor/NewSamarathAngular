@@ -130,9 +130,10 @@ export class AdminlistComponent implements OnInit {
 
 
   displayModalUpdate = false;
+  updateId="";
   updateMethod(id:string) {
 
-
+    this.updateId = id
     var data  = this.listOfAdmins.find(x=>x._id == id)
     this.addAdmin.controls["_id"].setValue(id)
     this.addAdmin.controls['emailID'].setValue(data.emailID);
@@ -146,15 +147,28 @@ export class AdminlistComponent implements OnInit {
   }
 
 
-  updateAdminById() {
+  updateAdminById(id : string) {
 
 
-    this.adminService.getAllAdmin().subscribe(res => {
-      this.listOfAdmins = res.data;
-      console.log(this.listOfAdmins)
+
+    this.adminService.updateAdmin(this.addAdmin.value).subscribe(res => {
+      // this.listOfAdmins = res.data;
+      console.log(res)
       // alert(res.message)
-      if (res.status != 200) {
-        this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Error', detail: res.message });
+      if (res.status == 200) {
+        console.log(res.data)
+        // this.addAdmin.controls['updatedAt'].setValue(new Date())
+        // this.addAdmin.controls['createdAt'].setValue(new Date())
+        this.listOfAdmins = this.listOfAdmins.map(obj => obj._id===res.data._id ? res.data : obj);
+        // x=temp.map(obj => obj._id===temp2._id ? temp2 : obj);
+        // var x = this.listOfAdmins.filter(temp => temp._id != res.data._id)
+        this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
+      }
+      else if(res.status == -1){
+        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
+      }
+      else if(res.status == -2){
+        this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Warning', detail: res.message });
       }
     }, err => {
       this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });

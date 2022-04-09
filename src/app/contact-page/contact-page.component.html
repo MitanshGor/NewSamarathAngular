@@ -1,7 +1,7 @@
 <div class="section">
   <div class="leftContact">
       <form class="container-fluid" [formGroup]="contactForm">
-          <h3 class="text-left heading2">Book an appointment       <button class="btn btn-primary" (click)="exccelMethod()" style="margin-left:30px">Download the appointments list</button></h3>
+          <h3 class="text-left heading2">Book an appointment       <button class="btn btn-primary" *ngIf="isAdmin"  (click)="exccelMethod()" style="margin-left:30px">Download the appointments list</button></h3>
           <br>
           <div class="form-group">
               <label for="exampleInputEmail1">Name</label>
@@ -29,7 +29,7 @@
               <p id="emailHelp"  *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Message cannot be empty</span></p>
             </div>
           <br>
-          <button type="submit" [disabled]="!contactForm.valid" class="btn btn-primary">Submit</button>
+          <button type="submit" (click)="submitContactUS()" [disabled]="!contactForm.valid" class="btn btn-primary">Submit</button>
         </form>
   </div>
       <iframe  class="rightMap container-fluid" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.266349811521!2d72.53395911476919!3d23.013990684957417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84d8f35611e3%3A0x23a7e3d9977a8d33!2sNew%20Samarath%20English%20School!5e0!3m2!1sen!2sin!4v1629634299041!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>

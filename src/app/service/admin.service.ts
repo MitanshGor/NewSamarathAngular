@@ -21,6 +21,10 @@ export class AdminService {
 
   }
 
+
+  aboutUs(data:any):Observable<any>{
+    return this.httpClient.put(environment.admin_api_url+"updateAboutUs",data)
+  }
   deleteAdmin(id:string):Observable<any>{
 
     return this.httpClient.delete(environment.admin_api_url+"deleteAdmin/"+id)

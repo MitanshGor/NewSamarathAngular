@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { CericulamComponent } from '../cericulam/cericulam.component';
+import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -28,9 +30,11 @@ import { CericulamComponent } from '../cericulam/cericulam.component';
      BrowserAnimationsModule,
      DialogModule,
      ButtonModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
 
 
+     ToastModule,
+     RippleModule,
 
 
   ],

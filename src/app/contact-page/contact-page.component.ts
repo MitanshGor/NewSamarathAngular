@@ -7,6 +7,7 @@ import { regexData } from 'src/assets/regex';
 import { Workbook } from 'exceljs';
 import * as fs from 'file-saver';
 import { MessageService } from 'primeng/api';
+import { PublicService } from '../service/public.service';
 
 @Component({
   selector: 'main-page-module',
@@ -22,17 +23,24 @@ export class ContactPageComponent {
   passwordRegex = regexData.password;
   nameRegex = regexData.name;
   contactRegex = regexData.contact;
+
+
+  isAdmin =false;
 //   Without it, your current regex only matches that you have 6 to 16 valid characters, it doesn't
 //   validate that it has at least a number, and at least a special character. That's what the lookahead above is for.
 
 // (?=.*[0-9]) - Assert a string has at least one number;
 // (?=.*[!@#$%^&*]) - Assert a string has at least one special character.
 
+    ngOnInit(){
 
+      var x = JSON.parse(localStorage.getItem("authToken") || "").roleName;
+      this.isAdmin =  (x=="ADMIN" || x=="SUPER ADMIN") ? true : false;
+    }
 
   contactForm: FormGroup;
 
-  constructor(fb: FormBuilder , private adminService :  AdminService , private messageService : MessageService) {
+  constructor(fb: FormBuilder , private adminService :  AdminService , private messageService : MessageService, private publicService : PublicService) {
 
           this.contactForm = new FormGroup({
             name: new FormControl("", Validators.compose([
@@ -112,13 +120,22 @@ export class ContactPageComponent {
     }
 
 
+    submitContactUS(){
 
-
-
-
-
-
-
+      this.publicService.contactUs(this.contactForm.value).subscribe(res=>{
+        if(res.status==200){
+          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
+          console.log(res)
+        }
+        else{
+          this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Error', detail: res.message });
+          console.log(res)
+        }
+      },err=>{
+        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
+        console.log(err)
+      })
+    }
 
 }
 
