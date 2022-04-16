@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OfficeBearerImageComponentComponent } from '../../office-bearer-image-component/office-bearer-image-component.component';
+import { OfficeBearerImageComponentComponent } from './office-bearer-image-component/office-bearer-image-component.component';
 import { MainPageModuleComponent } from './main-page-module.component';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';

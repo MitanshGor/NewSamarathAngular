@@ -171,6 +171,7 @@ export class AdminlistComponent implements OnInit {
         this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Warning', detail: res.message });
       }
     }, err => {
+      console.log(err)
       this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
     })
   }
@@ -224,7 +225,7 @@ export class AdminlistComponent implements OnInit {
         // alert('Data  is added in DB')
         this.addAdmin.controls['updatedAt'].setValue(new Date())
         this.addAdmin.controls['createdAt'].setValue(new Date())
-        this.listOfAdmins.pop()
+        // this.listOfAdmins.pop()
         this.listOfAdmins = this.listOfAdmins.filter(obj => obj._id !== this.deleteId)
         // this.foo_objects = this.foo_objects.filter(obj => return obj !== foo_object);
       }

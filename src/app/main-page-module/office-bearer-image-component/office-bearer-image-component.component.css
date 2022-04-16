@@ -52,6 +52,10 @@ img {
 
   filter: drop-shadow(3px 3px 2px gray) grayscale(0%);
 }
+.centering{
+  border: 1px solid white;
+
+}
 img:hover {
   filter: drop-shadow(4px 4px 2px gray) grayscale(40%);
   transform: scale(1.1);
@@ -62,8 +66,7 @@ img:hover {
   position: absolute;
   /* top: 85%; */
   width: 90%;
-  bottom: -5%;
-  border: 1px solid white;
+  /* bottom: -5%; */
   left: 50%;
   background-color:  rgba(0, 0, 0, 0.39);
   color: white;

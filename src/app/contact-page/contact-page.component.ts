@@ -46,7 +46,7 @@ export class ContactPageComponent {
             name: new FormControl("", Validators.compose([
               Validators.required,
               Validators.pattern(this.nameRegex)])),
-            contact :new FormControl("", Validators.compose([
+            mobile :new FormControl("", Validators.compose([
                 Validators.required,
                 Validators.pattern(this.contactRegex)])),
             email: new FormControl("", Validators.compose([
@@ -65,7 +65,7 @@ export class ContactPageComponent {
 
 
       onKeyDown() {
-          let trimmed = this.contactForm.get('contact')?.value.replace(/\s+/g, '');
+          let trimmed = this.contactForm.get('mobile')?.value.replace(/\s+/g, '');
 
           if (trimmed.length > 12) {
             trimmed = trimmed.substr(0, 12);
@@ -77,7 +77,7 @@ export class ContactPageComponent {
           numbers.push(trimmed.substr(3,3));
           if(trimmed.substr(6,4)!="")
           numbers.push(trimmed.substr(6,4));
-          this.contactForm.controls["contact"].setValue(numbers.join('-'));
+          this.contactForm.controls["mobile"].setValue(numbers.join('-'));
       }
 
 

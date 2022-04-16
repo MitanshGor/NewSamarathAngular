@@ -10,8 +10,8 @@
 
             </div>  <div class="form-group">
               <label for="exampleInputEmail1">Contact</label>
-              <input type="tel"  (keydown)="onKeyDown()" formControlName="contact" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact details">
-              <p id="emailHelp"  *ngIf="contactForm.get('contact')?.touched && contactForm.get('contact')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Contact Number</span></p>
+              <input type="tel"  (keydown)="onKeyDown()" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact details">
+              <p id="emailHelp"  *ngIf="contactForm.get('mobile')?.touched && contactForm.get('mobile')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Contact Number</span></p>
 
             </div>  <div class="form-group">
               <label for="exampleInputEmail1">Email</label>
