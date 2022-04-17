@@ -84,6 +84,7 @@ export class FacilityComponent implements OnInit {
   removeAddImage(){
 
     this.addFacility.controls["image"].setValue(null);
+    this.image = new File([""],"")
 
   }
   removeUpdateImage(){

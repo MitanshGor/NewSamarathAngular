@@ -4,23 +4,29 @@
   </div>
   <div class="section container-fluid" style="overflow-x:auto;">
 
-    <table  class="table table-striped table-responsive" style="overflow-x:scroll" scrollx="true" scroll>
+
+    <div *ngIf="state.length==0">
+        NO DATA TO SHOW
+    </div>
+    <table *ngIf="state.length!=0"  class="table table-striped table-responsive" style="overflow-x:scroll" scrollx="true" scroll>
       <thead class="thead-primary ">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Image</th>
           <th scope="col">Full name</th>
           <th scope="col">Designation</th>
+          <th scope="col">Joining Date</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td><img src="../../../assets/images/profileImg.png" alt="teachers name"></td>
-          <td>Mark Lee</td>
-          <td>primary</td>
-          <td><a pButton pRipple    (click)="showConfirm()"label="Delete"  class="p-button-danger"  ></a></td>
+        <tr *ngFor="let item of state; index as i;">
+          <th scope="row">{{i+1}}</th>
+          <td><img src="{{item.photoURL}}" alt="teachers name"></td>
+          <td>{{item.facultyName}}</td>
+          <td>{{item.designation}}</td>
+          <td>{{item.createdAt | date}}</td>
+          <td><a pButton pRipple    (click)="showConfirm(item._id)"label="Delete"  class="p-button-danger"  ></a></td>
         </tr>
 
       </tbody>
@@ -50,32 +56,42 @@
 </p-toast>
 
 
-  <p-dialog header="Edit Detail About Us" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+  <p-dialog header="Add Faculty Detail" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
   [draggable]="true" [resizable]="false" >
 
-        <form>
+        <form [formGroup]="addFaculty">
           <div class="form-group ">
-            <label for="exampleInputEmail1">Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name of Faculty">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <label for="exampleInputEmail1">Faculty Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" formControlName="facultyName" aria-describedby="facultyName" placeholder="Name of Faculty">
+            <p id="emailHelp"  *ngIf="addFaculty.get('facultyName')?.touched && addFaculty.get('facultyName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
           </div>
           <div class="form-group ">
             <label for="exampleInputEmail1">Image</label>
-            <input type="file" class="form-control" id="exampleInputEmail1"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
-            <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
+         <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
+                                                                                                                                                                                                                                                              <ul><li>Size should be less than 200kb</li>
+                                                                                                                                                                                                                                                                  <li>Image should be of type jpg , jpeg , png . </li>
+                                                                                                                                                                                                                                                              </ul> </span></p>
+          <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
+
           </div>
           <div class="form-group ">
             <label for="exampleInputEmail1">Designation</label>
-            <input type="text" class="form-control" id="exampleInputEmail1"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Designation of Faculty">
-            <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <input type="text" class="form-control" id="exampleInputEmail1" formControlName="designation"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Designation of Faculty">
+            <p id="emailHelp"  *ngIf="addFaculty.get('designation')?.touched && addFaculty.get('designation')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Designation</span></p>
           </div>
 
-        </form>
-
           <br>
-          <button  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+          <button [disabled]="!addFaculty?.valid"  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+
+        </form>
 
 
   </p-dialog>
 
+
+
+
+
+<p-toast key="toast" position="top-right" ></p-toast>
 

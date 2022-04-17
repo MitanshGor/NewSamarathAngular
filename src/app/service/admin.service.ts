@@ -47,9 +47,16 @@ export class AdminService {
     return this.httpClient.post(environment.upload_api_url+"/addUpdateFacility",data)
   }
 
+  addFaculty(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/addUpdateFaculty",data)
+  }
 
   deleteFacility(id:any):Observable<any>{
     return this.httpClient.delete(environment.admin_api_url+"/deleteFacility/"+id)
+  }
+
+  deleteFaculty(id:any):Observable<any>{
+    return this.httpClient.delete(environment.admin_api_url+"/deleteFaculty/"+id)
   }
 
 

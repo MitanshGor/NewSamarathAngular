@@ -21,6 +21,9 @@ export class PublicService {
     return this.httpClient.get(environment.public_api_url+"getFacility")
   }
 
+  getAboutUs():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getAboutUs")
+  }
 
   getFaculty():Observable<any>{
     return this.httpClient.get(environment.public_api_url+"getFaculty")
