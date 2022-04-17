@@ -1,7 +1,7 @@
+import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +42,15 @@ export class AdminService {
 
   }
 
+  addFacility(data:any):Observable<any>{
+    console.log(data)
+    return this.httpClient.post(environment.upload_api_url+"/addUpdateFacility",data)
+  }
+
+
+  deleteFacility(id:any):Observable<any>{
+    return this.httpClient.delete(environment.admin_api_url+"/deleteFacility/"+id)
+  }
 
 
   login(data:any):Observable<any>

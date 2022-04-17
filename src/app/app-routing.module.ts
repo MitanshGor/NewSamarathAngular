@@ -23,7 +23,7 @@ const routes: Routes = [
   [
     // { path: "", redirectTo: 'faculty', pathMatch: 'full'},
     { path: "", component:FacultyComponent  },
-    { path: "facility", component: FacilityComponent },
+    { path: "facility", component: FacilityComponent  },
 
 
   ]},

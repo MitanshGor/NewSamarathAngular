@@ -2,94 +2,110 @@
   <a class="update" (click)="showModalDialog()">Add</a>
 </div>
 <div class="facilities">
+<!--
 
-  <div class="facility">
+createdAt: "2022-04-16T14:26:33.578Z"
+description: "Bluh"
+photoURL: "https://drive.google.com/uc?export=view&id=1QmQJbhEhxTCDG2ut_Y6aXhFodq2nk5q7"
+title: "Jap"
+updatedAt: "2022-04-16T14:26:33.578Z"
+__v: 0
+_id: "625ad21527d41c241710ff60"
+
+  -->
+  <div class="facility" *ngFor="let item of state" >
       <div class="info">
           <div class="title">
-              <p class="heading">Science Lab</p>
+              <span hidden>{{item._id}}</span>
+              <p class="heading">{{item.title}}</p>
               <div class="buttons">
-                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
-                <a class="update" href="">Update</a>
+                <a   pButton pRipple (click)="showConfirm(item._id)" label="Delete"  class="p-button-danger" ></a>
+                <a class="update" (click)="updateShowModalDialog(item._id)">Update</a>
               </div>
           </div>
-          <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
+          <p>{{item.description}}</p>
       </div>
-      <img src="../../assets/images/11.jpg">
+      <!-- <img src="../../../assets/images/10.jpg"> -->
+        <img src="{{item.photoURL}}">
   </div>
 
-  <div class="facility">
-      <div class="info">
-          <div class="title">
-              <p class="heading">Science Lab</p>
-              <div class="buttons">
-                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
-                <a class="update" href="">Update</a>
-              </div>
-          </div>
-          <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
-      </div>
-      <img src="../../assets/images/11.jpg">
-  </div>
-
-  <div class="facility">
-      <div class="info">
-          <div class="title">
-              <p class="heading">Science Lab</p>
-              <div class="buttons">
-                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
-                <a class="update" href="">Update</a>
-              </div>
-          </div>
-          <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
-      </div>
-      <img src="../../assets/images/11.jpg">
-  </div>
-
-  <div class="facility">
-      <div class="info">
-          <div class="title">
-              <p class="heading">Science Lab</p>
-              <div class="buttons">
-                <a   pButton pRipple (click)="showConfirm()" label="Delete"  class="p-button-danger" ></a>
-          <a class="update" href="">Update</a>
-              </div>
-          </div>
-          <p>Lorem ipsum, dd modi, dolorem quos dolores veniam accusamus illum deleniti quae, fugit labore? Placeat saepe voluptates magnam dignissimos dicta iste, debitis consequatur repellat ipsum, molestiae quo provident accusamus rerum officia. Dolorem consectetur minima, non sit itaque in odit suscipit iure, recusandae molestias libero, repellat vel ullam accusamus expedita! Impedit, provident esse? Culpa nulla eum nesciunt accusantium atque. Incidunt inventore, accusantium provident doloribus velit unde ipsa dolorem architecto.</p>
-      </div>
-      <img src="../../assets/images/11.jpg">
-  </div>
 </div>
 
 
 
 
-<p-dialog header="Edit Detail About Us" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+<p-dialog header="Add a new Facility" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
 [draggable]="true" [resizable]="false" >
 
-      <form>
+      <form [formGroup]="addFacility">
+
+
         <div class="form-group ">
-          <label for="exampleInputEmail1">Name</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirectorName" aria-describedby="emailHelp" placeholder="Name of Facility">
-          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          <label for="exampleInputEmail1">Facility Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="title" aria-describedby="emailHelp" placeholder="Name of Facility">
+          <p id="emailHelp"  *ngIf="updateFacility.get('title')?.touched && updateFacility.get('title')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
         </div>
         <div class="form-group ">
           <label for="exampleInputEmail1">Image</label>
-          <input type="file" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirector"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Facility">
-          <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-        </div>
+          <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event)" formControlName="image" aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" style="width:90%" placeholder="Image of Facility">
+          <p id="emailHelp"  *ngIf="addFacility.get('image')?.touched && addFacility.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
+                                                                                                                                                                                                                                                              <ul><li>Size should be less than 200kb</li>
+                                                                                                                                                                                                                                                                  <li>Image should be of type jpg , jpeg , png . </li>
+                                                                                                                                                                                                                                                              </ul> </span></p>
+          <p id="emailHelp"  *ngIf="addFacility.get('image')?.touched && addFacility.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
+          </div>
         <div class="form-group ">
           <label for="exampleInputEmail1">Description</label>
-          <textarea maxlength="550" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirector"  aria-describedby="excutiveDirector" placeholder="Discription of the Facility"></textarea>
-          <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          <textarea maxlength="550" class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Description of the Facility"></textarea>
+          <p id="emailHelp"  *ngIf="addFacility.get('description')?.touched && addFacility.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be less than 600 characters</span></p>
         </div>
+        <br>
+        <button [disabled]="!addFacility?.valid"  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
 
       </form>
 
-        <br>
-        <button  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+</p-dialog>
 
+
+
+
+
+<p-dialog header="Update the Facility Details" [(visible)]="updatePopForm" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="true" [resizable]="false" >
+
+      <form [formGroup]="updateFacility">
+        <div class="form-group " hidden>
+          <!-- <label for="exampleInputEmail1">Facility Name</label> -->
+          <input type="hidden" class="form-control" id="exampleInputEmail1" formControlName="_id" aria-describedby="emailHelp" placeholder="Name of Facility">
+          <!-- <p id="emailHelp"  *ngIf="addFacility.get('title')?.touched && addFacility.get('title')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p> -->
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Facility Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="title" aria-describedby="emailHelp" placeholder="Name of Facility">
+          <p id="emailHelp"  *ngIf="updateFacility.get('title')?.touched && updateFacility.get('title')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Image</label>
+          <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" style="width:90%" placeholder="Image of Facility">
+          <!-- <p id="emailHelp"  *ngIf="addFacility.get('image')?.touched && addFacility.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image : -->
+                                                                                                                                                                                                                                                              <!-- <ul><li>Size should be less than 200kb</li> -->
+                                                                                                                                                                                                                                                                  <!-- <li>Image should be of type jpg , jpeg , png . </li> -->
+                                                                                                                                                                                                                                                              <!-- </ul> </span></p> -->
+          <p id="emailHelp"  *ngIf="updateFacility.get('image')?.touched && updateFacility.get('image')?.value != null" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeUpdateImage()">Click here to remove the image !!!</span></p>
+          </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Description</label>
+          <textarea maxlength="550" class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Description of the Facility"></textarea>
+          <p id="emailHelp"  *ngIf="updateFacility.get('description')?.touched && updateFacility.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be greater than 320 letters and less than 600 characters</span></p>
+        </div>
+        <br>
+        <button [disabled]="!updateFacility?.valid" (click)="updateFacilityMethod()"class="btn btn-primary">Submit</button>
+
+      </form>
 
 </p-dialog>
+
+
 
 
 
@@ -116,3 +132,8 @@
       </div>
   </ng-template>
 </p-toast>
+
+
+
+
+<p-toast key="toast" position="top-right" ></p-toast>

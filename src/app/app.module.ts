@@ -45,6 +45,8 @@ import { MessageService } from 'primeng/api';
     DownloadsModuleComponent,
     AdminlistComponent,
     AuthBehaviourServicePipe,
+    
+
   ],
   imports: [
     BrowserModule,

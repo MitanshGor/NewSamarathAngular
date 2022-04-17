@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
@@ -10,6 +10,8 @@ import { MessageService, PrimeNGConfig } from 'primeng/api';
 export class FacultyComponent implements OnInit {
 
 
+  @Input()
+  facultyData : any =[]
 
   constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService) { }
 

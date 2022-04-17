@@ -13,10 +13,12 @@ export class HttpApiInterceptor implements HttpInterceptor {
     req = req.clone({
       headers: req.headers
       .set('Access-Control-Allow-Origin', '*')
+      // .set("Acce")
       .set('Access-Control-Allow-Credentials', 'true')
       .set('Access-Control-Allow-Methods', 'GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH')
       .set('Access-Control-Max-Age', '3600')
       .set('Access-Control-Allow-Headers', '*')
+
 
   });
 

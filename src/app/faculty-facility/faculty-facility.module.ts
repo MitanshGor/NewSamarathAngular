@@ -9,16 +9,23 @@ import { DialogModule } from 'primeng/dialog';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataService } from '../service/data-service';
+import { MessageService } from 'primeng/api';
 
 
 
 @NgModule({
   declarations: [
     FacilityComponent,
-    FacultyComponent
+    FacultyComponent,
+
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
+
     FandFPageRoutingModule,
     RouterModule,
     BrowserModule,
@@ -26,6 +33,15 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule,
     ToastModule,
     RippleModule,
+
   ]
+  ,
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [MessageService, DataService],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FacultyFacilityModule { }

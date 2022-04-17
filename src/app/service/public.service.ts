@@ -17,7 +17,14 @@ export class PublicService {
   }
 
 
+  getFacility():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getFacility")
+  }
 
+
+  getFaculty():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getFaculty")
+  }
   contactUs(data:any):Observable<any>{
 
     return this.httpClient.post(environment.public_api_url + "/contactUs",data)
