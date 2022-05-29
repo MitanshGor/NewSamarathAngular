@@ -2,7 +2,7 @@
    <div class="container" >
       <div class="heading" style="
       text-decoration: underline; margin-top: 4rem;">
-         {{item.newsType}}
+         <!-- {{item.newsType}} -->
       </div>
       <div class="addBtn">
         <a class="update" (click)="showModalDialog()">Add</a>
@@ -35,15 +35,15 @@
   <div class="facility" *ngFor="let news of item.data">
       <div class="info">
           <div class="title">
-              <p class="heading">{{news.title}}</p>
+              <!-- <p class="heading">{{news.title}}</p> -->
               <div class="buttons">
                 <a  type="button" pButton pRipple (click)="showConfirm()" label="Confirm"  class="p-button-danger" >Delete</a>
                 <a class="update" (click)="showModalDialogForOfficeBearer()" >Update</a>
               </div>
           </div>
-          <p>{{news.desc}}</p>
+          <!-- <p>{{news.desc}}</p> -->
       </div>
-      <img src="{{news.image}}">
+      <!-- <img src="{{news.image}}"> -->
   </div>
 
 

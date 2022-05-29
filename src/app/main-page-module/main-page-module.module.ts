@@ -19,7 +19,7 @@ import { ToastModule } from 'primeng/toast';
 
     MainPageModuleComponent,
     OfficeBearerImageComponentComponent,
-    // CericulamComponent
+    
   ],
   imports: [
     CommonModule,

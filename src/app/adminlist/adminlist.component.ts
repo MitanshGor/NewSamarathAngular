@@ -35,8 +35,8 @@ export class AdminlistComponent implements OnInit {
       phonenumber: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.contactRegex)])),
-      roleName: new FormControl("ADMIN"),
-      password: new FormControl("mit@1224", Validators.compose([
+      roleName: new FormControl("",Validators.required),
+      password: new FormControl("Mit@1224" , Validators.compose([        // require a default passoword so dont remove it. Backend ma change thai jase internally.
         Validators.required,
         Validators.pattern(this.passwordRegex)])),
       updatedAt: new FormControl(""),
@@ -87,6 +87,7 @@ export class AdminlistComponent implements OnInit {
       // alert(res.message)
       if (res.status != 200) {
         this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Error', detail: res.message });
+
       }
     }, err => {
       this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
@@ -109,6 +110,12 @@ export class AdminlistComponent implements OnInit {
 
   showModalDialog() {
 
+    this.addAdmin.controls["_id"].setValue("")
+    this.addAdmin.controls['emailID'].setValue("");
+    this.addAdmin.controls['fullName'].setValue("");
+    this.addAdmin.controls['phonenumber'].setValue("");
+    this.addAdmin.controls['roleName'].setValue("");
+
     this.currentDateCreated = new Date((new Date()).toISOString().substring(0, 10));
     this.currentDateUpdated = new Date((new Date()).toISOString().substring(0, 10));
     this.displayModal = true;
@@ -118,11 +125,6 @@ export class AdminlistComponent implements OnInit {
 
 
 
-
-  displayModalOfficeBearer: boolean = false;
-  showModalDialogForOfficeBearer() {
-    this.displayModalOfficeBearer = true;
-  }
 
 
 
@@ -139,6 +141,8 @@ export class AdminlistComponent implements OnInit {
     this.addAdmin.controls['emailID'].setValue(data.emailID);
     this.addAdmin.controls['fullName'].setValue(data.fullName);
     this.addAdmin.controls['phonenumber'].setValue(data.phonenumber);
+    this.addAdmin.controls['roleName'].setValue(data.roleName);
+
     // this.addAdmin.controls['password'].setValue(data.password==null);
     this.currentDateUpdated = new Date((new Date()).toISOString().substring(0, 10));
     this.displayModalUpdate = true;
@@ -163,6 +167,8 @@ export class AdminlistComponent implements OnInit {
         // x=temp.map(obj => obj._id===temp2._id ? temp2 : obj);
         // var x = this.listOfAdmins.filter(temp => temp._id != res.data._id)
         this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
+        this.displayModalUpdate = false;
+
       }
       else if(res.status == -1){
         this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
@@ -193,6 +199,7 @@ export class AdminlistComponent implements OnInit {
         this.addAdmin.controls['updatedAt'].setValue(new Date())
         this.addAdmin.controls['createdAt'].setValue(new Date())
         this.listOfAdmins.push(this.addAdmin.value)
+        this.displayModal = false;
       }
       else {
         console.log("red");

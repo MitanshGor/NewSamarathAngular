@@ -9,6 +9,15 @@ import { Injectable } from '@angular/core';
 export class AdminService {
 
 
+
+  updateOfficeBearner(data:any):Observable<any>{
+    return this,this.httpClient.post(environment.upload_api_url+"/updateOfficeBearer",data)
+  }
+
+  deleteGalleryImage(_id:string):Observable<any>{
+    return this.httpClient.delete(environment.admin_api_url+"deleteImage/"+_id)
+  }
+
   getAllAdmin():Observable<any>
   {
     return this.httpClient.get(environment.admin_api_url+"getAllAdmin")
@@ -54,6 +63,13 @@ export class AdminService {
   deleteFacility(id:any):Observable<any>{
     return this.httpClient.delete(environment.admin_api_url+"/deleteFacility/"+id)
   }
+
+  addGalleryImage(formData: FormData):Observable<any>
+  {
+    return this.httpClient.post(environment.upload_api_url+"/addGallery",formData)
+  }
+
+
 
   deleteFaculty(id:any):Observable<any>{
     return this.httpClient.delete(environment.admin_api_url+"/deleteFaculty/"+id)

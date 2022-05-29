@@ -26,9 +26,8 @@
           <td>{{item.facultyName}}</td>
           <td>{{item.designation}}</td>
           <td>{{item.createdAt | date}}</td>
-          <td><a pButton pRipple    (click)="showConfirm(item._id)"label="Delete"  class="p-button-danger"  ></a></td>
+          <td><a pButton pRipple    (click)="showConfirm(item._id)"label="Delete"  class="p-button-danger"  ></a>&nbsp;&nbsp;&nbsp;<a pButton pRipple    (click)="showModalDialogUpdate(item._id)"label="Update"  class="p-button-info"  ></a></td>
         </tr>
-
       </tbody>
     </table>
   </div>
@@ -56,38 +55,78 @@
 </p-toast>
 
 
-  <p-dialog header="Add Faculty Detail" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
-  [draggable]="true" [resizable]="false" >
+<p-dialog header="Add Faculty Detail" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="true" [resizable]="false" >
 
-        <form [formGroup]="addFaculty">
-          <div class="form-group ">
-            <label for="exampleInputEmail1">Faculty Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" formControlName="facultyName" aria-describedby="facultyName" placeholder="Name of Faculty">
-            <p id="emailHelp"  *ngIf="addFaculty.get('facultyName')?.touched && addFaculty.get('facultyName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
-          </div>
-          <div class="form-group ">
-            <label for="exampleInputEmail1">Image</label>
-            <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
-         <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
-                                                                                                                                                                                                                                                              <ul><li>Size should be less than 200kb</li>
-                                                                                                                                                                                                                                                                  <li>Image should be of type jpg , jpeg , png . </li>
-                                                                                                                                                                                                                                                              </ul> </span></p>
-          <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
+      <form [formGroup]="addFaculty">
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Faculty Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="facultyName" aria-describedby="facultyName" placeholder="Name of Faculty">
+          <p id="emailHelp"  *ngIf="addFaculty.get('facultyName')?.touched && addFaculty.get('facultyName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Image</label>
+          <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
+       <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
+                                                                                                                                                                                                                                                            <ul><li>Size should be less than 200kb</li>
+                                                                                                                                                                                                                                                                <li>Image should be of type jpg , jpeg , png . </li>
+                                                                                                                                                                                                                                                            </ul> </span></p>
+        <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
 
-          </div>
-          <div class="form-group ">
-            <label for="exampleInputEmail1">Designation</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" formControlName="designation"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Designation of Faculty">
-            <p id="emailHelp"  *ngIf="addFaculty.get('designation')?.touched && addFaculty.get('designation')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Designation</span></p>
-          </div>
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Designation</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="designation"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Designation of Faculty">
+          <p id="emailHelp"  *ngIf="addFaculty.get('designation')?.touched && addFaculty.get('designation')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Designation</span></p>
+        </div>
 
-          <br>
-          <button [disabled]="!addFaculty?.valid"  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+        <br>
+        <button [disabled]="!addFaculty?.valid"  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
 
-        </form>
+      </form>
 
 
-  </p-dialog>
+</p-dialog>
+
+
+<p-dialog header="Update Faculty Details" [(visible)]="displayModalUpdate" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="true" [resizable]="false" >
+
+
+  <form [formGroup]="addFaculty">
+
+
+
+    <input type="hidden" class="form-control" id="exampleInputEmail1" formControlName="_id" aria-describedby="Id">
+
+    <div class="form-group ">
+          <label for="exampleInputEmail1">Faculty Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="facultyName" aria-describedby="facultyName" placeholder="Name of Faculty">
+          <p id="emailHelp"  *ngIf="addFaculty.get('facultyName')?.touched && addFaculty.get('facultyName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Image</label>
+          <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
+       <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
+                                                                                                                                                                                                                                                            <ul><li>Size should be less than 200kb</li>
+                                                                                                                                                                                                                                                                <li>Image should be of type jpg , jpeg , png . </li>
+                                                                                                                                                                                                                                                            </ul> </span></p>
+        <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
+
+        </div>
+        <div class="form-group ">
+          <label for="exampleInputEmail1">Designation</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="designation"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Designation of Faculty">
+          <p id="emailHelp"  *ngIf="addFaculty.get('designation')?.touched && addFaculty.get('designation')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Designation</span></p>
+        </div>
+
+        <br>
+        <button [disabled]="!addFaculty?.valid"  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+
+      </form>
+
+
+</p-dialog>
 
 
 

@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Oxygen&family=Roboto+Slab:wght@300&display=swap');
+
+@import '../node_modules/primeicons/primeicons.css';
+
+
 *,*:after,*:before
 {
     border:0px;
@@ -27,3 +31,6 @@
     font-family: 'Oxygen', sans-serif;
     font-family: 'Roboto Slab', serif;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

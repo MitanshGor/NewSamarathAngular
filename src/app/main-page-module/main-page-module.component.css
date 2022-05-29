@@ -1,8 +1,6 @@
 
 
 
-@import '~primeicons/primeicons.css';
-
 .hero-img {
   display: none;
   /* border:3px solid red; */
@@ -73,6 +71,10 @@
 
   filter: drop-shadow(3px 3px 2px gray) grayscale(0%);
 }
+.edit-btn:hover{
+  color: white;
+  cursor: pointer;
+}
 .office .tempImg:hover {
   filter: drop-shadow(4px 4px 2px gray) grayscale(40%);
   transform: scale(1.1);
@@ -133,10 +135,10 @@ form {
   font-weight: 600;
   color: #a09c9c;
 }
-form > .btn {
+/* form > .btn {
   background-color: var(--header-text);
   padding: 0em 2em;
-}
+} */
 
 @media only screen and (min-width: 817px) {
   .hero-img {

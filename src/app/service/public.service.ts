@@ -9,11 +9,21 @@ import { HttpClient } from '@angular/common/http';
 export class PublicService {
 
 
+  getNewsDetails():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getNewsDetails")
+  }
 
+  getOfficeBearer():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getOfficeBearer")
+  }
 
   forgotPassword(data:any):Observable<any>
   {
     return this.httpClient.post(environment.public_api_url+"/forgotPassword",data)
+  }
+
+  getAllGalleryImages():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getGalleryData")
   }
 
 

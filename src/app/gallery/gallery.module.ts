@@ -28,6 +28,9 @@ import { RippleModule } from 'primeng/ripple';
      ReactiveFormsModule,
      ToastModule,
      RippleModule,
+
+
+
   ]
 })
 export class GalleryModule { }

@@ -1,12 +1,6 @@
-
-
-
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Oxygen&family=Roboto+Slab:wght@300&display=swap');
+
+
 *,*:after,*:before
 {
     border:0px;
@@ -41,8 +35,10 @@
     font-size: 2rem;
     font-weight: 900;
     width: 100%;
+    margin: 20px 0px;
     text-transform: uppercase;
     color: var(--header-text);
+    background-color:var(--header-bg);
     display:flex;
     flex-direction: row;
     justify-content: center;
@@ -61,7 +57,9 @@
     padding: 0.3em  0.5em;
   }
 
-
+.edit-btn{
+  cursor: pointer;
+}
 
 
 .section{
@@ -74,13 +72,13 @@
 
     width: 100vw;
     line-height: 0;
-     margin-top: 5rem;;
+     margin-top: 5rem;
     -webkit-column-count: 5;
-    -webkit-column-gap:   1px;
+    /* -webkit-column-gap:   1px; */
     -moz-column-count:    5;
-    -moz-column-gap:      1px;
+    /* -moz-column-gap:      1px; */
     column-count:         5;
-    column-gap:           1px;
+    /* column-gap:           1px; */
   }
 
   #photos .img{
@@ -174,6 +172,3 @@
     column-count:         1;
     }
   }
-
-
-  @import "node_modules/bootstrap/dist/css/bootstrap.css"

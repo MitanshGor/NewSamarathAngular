@@ -57,7 +57,7 @@ _id: "625ad21527d41c241710ff60"
           </div>
         <div class="form-group ">
           <label for="exampleInputEmail1">Description</label>
-          <textarea maxlength="550" class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Description of the Facility"></textarea>
+          <textarea  class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Description of the Facility"></textarea>
           <p id="emailHelp"  *ngIf="addFacility.get('description')?.touched && addFacility.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be less than 600 characters</span></p>
         </div>
         <br>
@@ -96,7 +96,7 @@ _id: "625ad21527d41c241710ff60"
           </div>
         <div class="form-group ">
           <label for="exampleInputEmail1">Description</label>
-          <textarea maxlength="550" class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Description of the Facility"></textarea>
+          <textarea  class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Description of the Facility"></textarea>
           <p id="emailHelp"  *ngIf="updateFacility.get('description')?.touched && updateFacility.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be greater than 320 letters and less than 600 characters</span></p>
         </div>
         <br>
@@ -110,6 +110,8 @@ _id: "625ad21527d41c241710ff60"
 
 
 
+
+<p-toast key="toast" position="top-right" ></p-toast>
 
 
 

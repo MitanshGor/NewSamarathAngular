@@ -11,7 +11,7 @@
       <div class="form-group">
         <label for="exampleFormControlInput1">Password</label>
         <input type="password" class="form-control"  formControlName="password" id="exampleFormControlInput1" placeholder="password">
-        <p id="excutiveDirector"  (click)="forgotPasswordMethod()"  class="form-text text-muted" style="font-size:0.7rem;float: right;font-weight: bolder; text-decoration: underline;">Forgot Password ?</p>
+        <p id="excutiveDirector"  (click)="forgotPasswordMethod()"  class="form-text text-muted" style="font-size:0.7rem;float: right;font-weight: bolder; text-decoration: underline; color: blue;">Forgot Password ?</p>
         <p id="emailHelp"  *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Password :
                                                                                                     <ul><li>have 6 to 16 valid characters</li>
                                                                                                         <li>have at least a number</li>
@@ -33,7 +33,7 @@
     <form class="container-fluid" method="post" [formGroup]="forgotForm">
       <div class="form-group col-md-6">
         <label for="exampleInputEmail1">Email</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp" placeholder="email">
+        <input type="text" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp" placeholder="Enter Registered Email">
         <p id="emailHelp"  *ngIf="forgotForm.get('email')?.touched && forgotForm.get('email')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Email</span></p>
       </div>
         <br>

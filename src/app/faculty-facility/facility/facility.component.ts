@@ -111,6 +111,7 @@ updatePopForm:boolean = false;
 
 
 showModalDialog() {
+  this.image = new File([""],"")
   this.displayModal = true;
 }
 
