@@ -18,56 +18,29 @@ export class MainPageModuleComponent {
 
   title="title";
   aboutUsDetails=""
-<<<<<<< HEAD
 
   office1 = [{
     image:"//src/assets/images/profileImg.png",
-=======
-//   a)	Executive Director
-// b)	Director
-// c)	Principal
-// d)	Vice Principal
-// e)	Advisor
-
-  office1 = [{
-    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfV8u036u1tRO31ZGkF9G96UqxxOpXCP6oDkJj3tVq0RPrwuX7wT_SQG51w-fWUvWlQc&usqp=CAU",
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     position : "President",
     name:"Mitansh Gor",
   },
   {
-<<<<<<< HEAD
     image:"//src/assets/images/profileImg.pn",
-=======
-    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfV8u036u1tRO31ZGkF9G96UqxxOpXCP6oDkJj3tVq0RPrwuX7wT_SQG51w-fWUvWlQc&usqp=CAU",
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     position : "Director",
     name:"Mitansh Gor",
   },
   {
-<<<<<<< HEAD
     image:"//src/assets/images/profileImg.pn",
-=======
-    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfV8u036u1tRO31ZGkF9G96UqxxOpXCP6oDkJj3tVq0RPrwuX7wT_SQG51w-fWUvWlQc&usqp=CAU",
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     position : "Executive Director",
     name:"Mitansh Gor",
   }];
 office2 = [{
-<<<<<<< HEAD
   image:"//src/assets/images/profileImg.pn",
-=======
-  image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfV8u036u1tRO31ZGkF9G96UqxxOpXCP6oDkJj3tVq0RPrwuX7wT_SQG51w-fWUvWlQc&usqp=CAU",
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
   position : "Vice Principal",
   name:"Mitansh Gor",
 },
 {
-<<<<<<< HEAD
   image:"//src/assets/images/profileImg.pn",
-=======
-  image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfV8u036u1tRO31ZGkF9G96UqxxOpXCP6oDkJj3tVq0RPrwuX7wT_SQG51w-fWUvWlQc&usqp=CAU",
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
   position : "Advisor",
   name:"Mitansh Gor",
 }
@@ -140,17 +113,7 @@ ngOnInit() {
 
 getProjectBarrierData(){
 
-<<<<<<< HEAD
   this.publicService.getOfficeBearer().subscribe(res => {
-=======
-  // this.office1   1) ->president 2) ->director 3) ->executiveDirector
-  // this.office1   1) ->vicePrincipal 2) ->advisor
-
-
-
-  this.publicService.getOfficeBearer().subscribe(res => {
-    console.log(res.data)
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     this.office1[0].image = res.data. principal;
     this.office1[0].name = res.data.principalName;
     this.office1[1].image = res.data. director;
@@ -158,17 +121,13 @@ getProjectBarrierData(){
     this.office1[2].image = res.data. excutiveDirector;
     this.office1[2].name = res.data.excutiveDirectorName;
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     this.office2[0].image = res.data. vicePrincipalDirector;
     this.office2[0].name = res.data.vicePrincipalDirectorName;
     this.office2[1].image = res.data. advisor;
     this.office2[1].name = res.data.advisorName;
 
-<<<<<<< HEAD
 
     // this.officeBearerForm.value.excutiveDirectorName
 
@@ -186,8 +145,6 @@ getProjectBarrierData(){
 
     console.log("wowowowoow")
     console.log(this.officeBearerForm.value)
-=======
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
   },err=>{})
 }
 
@@ -224,51 +181,27 @@ changeDocData(event:Event,str:string){
 
   if(str=='principal'){
     this.imagePrincipal=(target.files as FileList)[0]
-<<<<<<< HEAD
-    console.log("PRINCIPAL CHANGED")
-=======
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     console.table(this.imagePrincipal)
 
   }
   else if(str=="director"){
     this.imageDirector=(target.files as FileList)[0]
-<<<<<<< HEAD
-    console.log("DIRECTOR CHANGED")
-
-=======
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     console.table(this.imageDirector)
 
   }
   else if(str=='excutiveDirector'){
     this.imageExcutiveDirector=(target.files as FileList)[0]
-<<<<<<< HEAD
-    console.log("ExecutiveDorecetor CHANGED")
-
-=======
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     console.table(this.imageExcutiveDirector)
 
   }
   else if(str=="vicePrincipalDirector"){
     this.imageVicePrincipalDirector=(target.files as FileList)[0]
-<<<<<<< HEAD
-    console.log("VPD CHANGED")
-
-=======
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
     console.table(this.imageVicePrincipalDirector)
 
   }
   else if(str="advisor"){
     this.imageAdvisor=(target.files as FileList)[0]
     console.table(this.imageAdvisor)
-<<<<<<< HEAD
-    console.log("ADVISOR CHANGED")
-
-=======
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
 
   }
 }
@@ -284,7 +217,6 @@ getAboutUsData(){
 
 OfficeBearerSubmit() {
 
-<<<<<<< HEAD
   var formData = new FormData();
 
 
@@ -315,17 +247,6 @@ console.log(formData)
 //     console.log(key, formData.get(key));
 //     // fd.append(key, formData[key]);
 // }
-=======
-  var formData = this.officeBearerForm.value
-// // formData.append("_id",this.officeBearerForm.value._id=="" || this.addFaculty.value._id==null ?"0":this.addFaculty.value._id)
-// formData.append("image",this.imageAdvisor);
-// formData.append("image",this.officeBearerForm.value.advisor);
-
-// // formData.append("facultyName",this.addFaculty.value.facultyName);
-// // formData.append("designation",this.addFaculty.value.designation);
-// console.log(this.officeBearerForm.value)
-// console.log(formData)
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
   this.adminService.updateOfficeBearner(formData).subscribe(res=>{
 
 
