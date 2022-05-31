@@ -59,7 +59,6 @@ ngOnChanges(){
 
   this.newsTypeId = this.item.id;
 }
-
 displayModal: boolean = false;
 showModalDialog() {
   this.displayModal = true;
