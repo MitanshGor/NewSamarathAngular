@@ -87,7 +87,6 @@
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Excutive Director Name</label>
-<<<<<<< HEAD
                 <input type="text" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirectorName"  placeholder="Enter Excutive Director Name" >
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('excutiveDirectorName')?.touched && officeBearerForm.get('excutiveDirectorName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Name</span></p>
             </div>
@@ -95,103 +94,59 @@
                 <label for="exampleInputEmail1">Excutive Director Image</label>
                 <input type="file" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirector" (change)="changeDocData($event , 'excutiveDirector')"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of excutive Director">
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('excutiveDirector')?.touched && this.imageExcutiveDirector.size != 0" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('excutiveDirector')">Click here to remove the image !!!</span></p>
-=======
-                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirectorName" aria-describedby="emailHelp" placeholder="Enter Excutive Director Name">
-                <p id="emailHelp"  *ngIf="officeBearerForm.get('excutiveDirectorName')?.touched && officeBearerForm.get('excutiveDirectorName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Name</span></p>
-        </div>
-              <div class="form-group col-md-6">
-                <label for="exampleInputEmail1">Excutive Director Image</label>
-                <input type="file" class="form-control" id="exampleInputEmail1" formControlName="excutiveDirector" (change)="changeDocData($event , 'director')"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of excutive Director">
-                <p id="emailHelp"  *ngIf="officeBearerForm.get('excutiveDirector')?.touched && officeBearerForm.get('excutiveDirector')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('excutiveDirector')">Click here to remove the image !!!</span></p>
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
               </div>
             </div>
 
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Director Name</label>
-<<<<<<< HEAD
                 <input type="text" class="form-control" id="exampleInputEmail1"  formControlName="directorName"  placeholder="Enter Director Name">
-=======
-                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="directorName" aria-describedby="emailHelp" placeholder="Enter Director Name">
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('directorName')?.touched && officeBearerForm.get('directorName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Name</span></p>
               </div>
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Director Image</label>
                 <input type="file" class="form-control" id="exampleInputEmail1" formControlName="director" (change)="changeDocData($event , 'director')"  aria-describedby="Director" accept=".jpeg, .png, .jpg" placeholder="Image of Director">
-<<<<<<< HEAD
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('director')?.touched && this.imageDirector.size != 0" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('director')">Click here to remove the image !!!</span></p>
-=======
-                <p id="emailHelp"  *ngIf="officeBearerForm.get('director')?.touched && officeBearerForm.get('director')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('director')">Click here to remove the image !!!</span></p>
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
 
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Principal Name</label>
-<<<<<<< HEAD
                 <input type="text" class="form-control" id="exampleInputEmail1" formControlName="principalName"  placeholder="Enter Principal Name">
-=======
-                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="principalName" aria-describedby="emailHelp" placeholder="Enter Principal Name">
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('principalName')?.touched && officeBearerForm.get('principalName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Name</span></p>
               </div>
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Principal Image</label>
-<<<<<<< HEAD
                 <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event , 'principal')" formControlName="principal"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of principal">
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('principal')?.touched && this.imagePrincipal.size != 0" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('principal')">Click here to remove the image !!!</span></p>
-=======
-                <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event , 'director')" formControlName="principal"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of principal">
-                <p id="emailHelp"  *ngIf="officeBearerForm.get('principal')?.touched && officeBearerForm.get('principal')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('principal')">Click here to remove the image !!!</span></p>
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
 
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Vice-Principal Name</label>
-<<<<<<< HEAD
                 <!-- {{} -->
                 <input type="text" class="form-control" id="exampleInputEmail1" formControlName="vicePrincipalDirectorName"  placeholder="Enter Vice-Principal Director Name">
-=======
-                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="vicePrincipalDirectorName" aria-describedby="emailHelp" placeholder="Enter Vice-Principal Director Name">
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('vicePrincipalDirectorName')?.touched && officeBearerForm.get('vicePrincipalDirectorName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Name</span></p>
               </div>
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Vice-Principal Image</label>
-<<<<<<< HEAD
                 <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event , 'vicePrincipalDirector')" formControlName="vicePrincipalDirector"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Vice-Principal Director">
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('vicePrincipalDirector')?.touched && this.imageVicePrincipalDirector.size != 0" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('vicePrincipalDirector')">Click here to remove the image !!!</span></p>
-=======
-                <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event , 'director')" formControlName="vicePrincipalDirector"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Vice-Principal Director">
-                <p id="emailHelp"  *ngIf="officeBearerForm.get('vicePrincipalDirector')?.touched && officeBearerForm.get('vicePrincipalDirector')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('vicePrincipalDirector')">Click here to remove the image !!!</span></p>
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
 
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Advisor Name</label>
-<<<<<<< HEAD
                 <input type="text" class="form-control" id="exampleInputEmail1" formControlName="advisorName"  placeholder="Enter Advisor Name">
-=======
-                <input type="text" class="form-control" id="exampleInputEmail1" formControlName="advisorName" aria-describedby="emailHelp" placeholder="Enter Advisor Name">
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('advisorName')?.touched && officeBearerForm.get('advisorName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Name</span></p>
               </div>
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Advisor Image</label>
-<<<<<<< HEAD
                 <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event , 'advisor')" formControlName="advisor"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Advisor">
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('advisor')?.touched && this.imageAdvisor.size != 0" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('advisor')">Click here to remove the image !!!</span></p>
-=======
-                <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event , 'director')" formControlName="advisor"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Advisor">
-                <p id="emailHelp"  *ngIf="officeBearerForm.get('advisor')?.touched && officeBearerForm.get('advisor')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage('advisor')">Click here to remove the image !!!</span></p>
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
 
               </div>
             </div>
