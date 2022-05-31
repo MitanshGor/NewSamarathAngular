@@ -63,11 +63,11 @@ office2 = [{
 // _id: "6292898e635e9542de103051"
 
 officeBearerForm = new FormGroup({
-  excutiveDirector: new FormControl('', ),
-  director: new FormControl('', ),
-  principal: new FormControl('', ),
-  vicePrincipalDirector: new FormControl('', ),
-  advisor: new FormControl('', ),
+  excutiveDirector: new FormControl(null, ),
+  director: new FormControl(null, ),
+  principal: new FormControl(null, ),
+  vicePrincipalDirector: new FormControl(null, ),
+  advisor: new FormControl(null, ),
 
 
   excutiveDirectorName: new FormControl('', [Validators.required]),

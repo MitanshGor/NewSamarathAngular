@@ -30,7 +30,7 @@ export class FacultyComponent implements OnInit {
       facultyName: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.nameRegex)])),
-      image :new FormControl(Validators.required),
+      image :new FormControl(null,Validators.required),
       designation: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.nameRegex)])),

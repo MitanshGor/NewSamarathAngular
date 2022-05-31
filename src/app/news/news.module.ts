@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListOfNewsComponent } from './list-of-news/list-of-news.component';
 import { ToastModule } from 'primeng/toast';
 import { RippleModule } from 'primeng/ripple';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { RippleModule } from 'primeng/ripple';
     RouterModule,
     BrowserModule,
     DialogModule,
+    ReactiveFormsModule,
 
     BrowserAnimationsModule,
     ButtonModule,

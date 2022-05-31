@@ -141,7 +141,9 @@ img{
   text-decoration: none;
   }
 
-
+.update {
+  cursor: pointer;
+}
   @media only screen and (min-width: 437px) {
 
       .title{
