@@ -11,7 +11,7 @@ import { RippleModule } from 'primeng/ripple';
 
 import {TreeSelectModule} from 'primeng/treeselect';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {PanelModule} from 'primeng/panel';
 import { DownloadsModuleComponent } from './downloads.component';
 
@@ -39,7 +39,7 @@ import { DownloadsModuleComponent } from './downloads.component';
     ButtonModule,
     ToastModule,
     RippleModule,
-
+    ReactiveFormsModule
   ]
 })
 export class DownloadsModule { }

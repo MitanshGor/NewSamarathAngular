@@ -38,6 +38,7 @@ export class PublicService {
   getFaculty():Observable<any>{
     return this.httpClient.get(environment.public_api_url+"getFaculty")
   }
+
   contactUs(data:any):Observable<any>{
 
     return this.httpClient.post(environment.public_api_url + "/contactUs",data)
@@ -50,5 +51,12 @@ export class PublicService {
   //   return this.httpClient.post(environment.common_api_url+"/getFullProfileWithAttendence",employeeID)
   // }
 
+  getDownloadAHFData():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getDownloadAHFData")
+  }
+  getExamPaper():Observable<any>{
+    return this.httpClient.get(environment.public_api_url+"getExamPaper")
+  }
+  
   constructor(private httpClient : HttpClient) { }
 }

@@ -95,6 +95,25 @@ export class AdminService {
   // getFullProfileWithAttendence(employeeID:any):Observable<any>{
   //   return this.httpClient.post(environment.common_api_url+"/getFullProfileWithAttendence",employeeID)
   // }
-
+  updateHoliday(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/updateHoliday",data)
+  }
+  updateExamSchedule(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/updateExamSchedule",data)
+  }
+  updateFessStructure(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/updateFessStructure",data)
+  }
+  updateAlmanac(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/updateAlmanac",data)
+  }
+  
+  addUpdateExamPaper(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/addUpdateExamPaper",data)
+  }
+  deleteExamPaper(standard:any,year:any):Observable<any>{
+    return this.httpClient.delete(environment.admin_api_url+"/deletePaper/"+standard+"/"+year)
+  }
+  
   constructor(private httpClient : HttpClient) { }
 }
