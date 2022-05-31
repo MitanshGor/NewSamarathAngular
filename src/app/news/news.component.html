@@ -1,10 +1,10 @@
 
     <div class="heading">News Updates</div>
     <div class="eventsGrid">
-       <a [routerLink]="['../news']">School Achivements</a>
-       <a [routerLink]="['studentAchivements']">Student Achivements</a>
-       <a [routerLink]="['circulars&Notices']">Circulars & Notices</a>
-       <a [routerLink]="['upcomingEvents']">Upcoming Events</a>
-       <a [routerLink]="['pressReleases']">Press Releases</a>
+       <a (click)="clickNews('School Achievements')">School Achivements</a>
+       <a (click)="clickNews('Student Achievements')">Student Achivements</a>
+       <a (click)="clickNews('Circulars & Notices')">Circulars & Notices</a>
+       <a (click)="clickNews('Upcoming Events')">Upcoming Events</a>
+       <a (click)="clickNews('Press Releases')">Press Releases</a>
     </div>
-    <!-- <app-list-of-news [item]="data"></app-list-of-news> -->
+    <app-list-of-news  [newsType]="this.selectedNewsType" [item]="data"></app-list-of-news>

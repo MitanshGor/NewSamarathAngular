@@ -4,8 +4,8 @@ export interface NewsSubModel {
 
   type : string;
   data : Array<NewsTypeData>;
-  _id : string;
- 
+  id : string;
+
   // constructor(public title: string, public image: string, public desc:string)
   // {
   //   this.title = title;

@@ -1,7 +1,11 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NewsModel } from './../../../interfaces/news-model';
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { PrimeNGConfig, MessageService } from 'primeng/api';
+import { NewsSubModel } from 'src/interfaces/news-sub-model';
+import { regexData } from 'src/assets/regex';
+
 
 @Component({
   selector: 'app-list-of-news',
@@ -9,18 +13,51 @@ import { PrimeNGConfig, MessageService } from 'primeng/api';
   styleUrls: ['./list-of-news.component.css'],
   providers: [MessageService]
 })
-export class ListOfNewsComponent implements OnInit {
+export class ListOfNewsComponent implements OnInit , OnChanges {
 
 
   @Input()
-  item!: NewsModel;
+  item!: NewsSubModel;
+
+  nameRegex = regexData.name;
+  descriptionRegex = regexData.description;
+
+  @Input()
+  newsType!:string;
+  newsTypeId!: string;
+
+  addFacility : FormGroup;
+  // updateFacility : FormGroup;
+
+
 
   constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService) {
     // this.item = null;
+    // this.image = new File([""],""),
+
+   this.addFacility = new FormGroup({
+     // _id : new FormControl(""),
+     title: new FormControl("", Validators.compose([
+       Validators.required,
+       Validators.pattern(this.nameRegex)])),
+     image :new FormControl(),
+     description: new FormControl("", Validators.compose([
+       Validators.required,
+       Validators.pattern(this.descriptionRegex)])),
+
+ });
+
+
   }
 
 ngOnInit() {
   this.primengConfig.ripple = true;
+}
+
+ngOnChanges(){
+  console.log(this.item)
+
+  this.newsTypeId = this.item.id;
 }
 
 displayModal: boolean = false;

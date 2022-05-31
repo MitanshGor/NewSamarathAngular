@@ -2,7 +2,7 @@
    <div class="container" >
       <div class="heading" style="
       text-decoration: underline; margin-top: 4rem;">
-         <!-- {{item.newsType}} -->
+         {{newsType}}
       </div>
       <div class="addBtn">
         <a class="update" (click)="showModalDialog()">Add</a>
@@ -31,19 +31,21 @@
   </p-toast>
 
 <div class="facilities">
-
+  <!-- {{item.data}}
+  {{newsType}} -->
   <div class="facility" *ngFor="let news of item.data">
+
       <div class="info">
           <div class="title">
-              <!-- <p class="heading">{{news.title}}</p> -->
+              <p class="heading">{{news.title}}</p>
               <div class="buttons">
                 <a  type="button" pButton pRipple (click)="showConfirm()" label="Confirm"  class="p-button-danger" >Delete</a>
                 <a class="update" (click)="showModalDialogForOfficeBearer()" >Update</a>
               </div>
           </div>
-          <!-- <p>{{news.desc}}</p> -->
+          <p>{{news.description}}</p>
       </div>
-      <!-- <img src="{{news.image}}"> -->
+      <img src="{{news.photoURL}}">
   </div>
 
 
@@ -52,34 +54,39 @@
 
 
 
-
-<p-dialog header="Edit Detail About Us" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+<!--
+<p-dialog header="Add a new Facility" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
 [draggable]="true" [resizable]="false" >
 
-      <form>
+      <form [formGroup]="addFacility">
+
+
         <div class="form-group ">
-          <label for="exampleInputEmail1">Name</label>
-          <input type="text" class="form-control"  style="padding: 0.375rem 0.75rem;border: 1px solid #ced4da;"  id="exampleInputEmail1" formControlName="excutiveDirectorName" aria-describedby="emailHelp" placeholder="Name of Facility">
-          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          <label for="exampleInputEmail1">Facility Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="title" aria-describedby="emailHelp" placeholder="Name of Facility">
+          <p id="emailHelp"  *ngIf="updateFacility.get('title')?.touched && updateFacility.get('title')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
         </div>
         <div class="form-group ">
           <label for="exampleInputEmail1">Image</label>
-          <input type="file" class="form-control"  style="padding: 0.375rem 0.75rem;border: 1px solid #ced4da;"  id="exampleInputEmail1" formControlName="excutiveDirector"  aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Facility">
-          <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-        </div>
+          <input type="file" class="form-control" id="exampleInputEmail1" (change)="changeDocData($event)" formControlName="image" aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" style="width:90%" placeholder="Image of Facility">
+          <p id="emailHelp"  *ngIf="addFacility.get('image')?.touched && addFacility.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
+                                                                                                                                                                                                                                                              <ul><li>Size should be less than 200kb</li>
+                                                                                                                                                                                                                                                                  <li>Image should be of type jpg , jpeg , png . </li>
+                                                                                                                                                                                                                                                              </ul> </span></p>
+          <p id="emailHelp"  *ngIf="addFacility.get('image')?.touched && addFacility.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
+          </div>
         <div class="form-group ">
           <label for="exampleInputEmail1">Description</label>
-          <textarea maxlength="550" class="form-control"  style="padding: 0.375rem 0.75rem;border: 1px solid #ced4da;"  id="exampleInputEmail1" formControlName="excutiveDirector"  aria-describedby="excutiveDirector" placeholder="Discription of the Facility"></textarea>
-          <!-- <small id="excutiveDirector" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          <textarea  class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Description of the Facility"></textarea>
+          <p id="emailHelp"  *ngIf="addFacility.get('description')?.touched && addFacility.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be less than 600 characters</span></p>
         </div>
+        <br>
+        <button [disabled]="!addFacility?.valid"  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
 
       </form>
 
-        <br>
-        <button   style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;"  (click)="aboutUsSubmit()"class="btn btn-primary">Submit</button>
+</p-dialog> -->
 
-
-</p-dialog>
 
 
 <p-dialog header="Edit Detail About Us" [(visible)]="displayModalUpdate" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
