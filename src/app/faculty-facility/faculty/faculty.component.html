@@ -90,7 +90,7 @@
 
 
 <p-dialog header="Update Faculty Details" [(visible)]="displayModalUpdate" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
-[draggable]="true" [resizable]="false" >
+[draggable]="true" [resizable]="false"    >
 
 
   <form [formGroup]="addFaculty">
@@ -107,7 +107,7 @@
         <div class="form-group ">
           <label for="exampleInputEmail1">Image</label>
           <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
-        <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
+        <p id="emailHelp"  *ngIf="image.size!=0" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
 
         </div>
         <div class="form-group ">

@@ -11,7 +11,7 @@
       <div class="form-group">
         <label for="exampleFormControlInput1">Password</label>
         <input type="password" class="form-control"  formControlName="password" id="exampleFormControlInput1" placeholder="password">
-        <p id="excutiveDirector"  (click)="forgotPasswordMethod()"  class="form-text text-muted" style="font-size:0.7rem;float: right;font-weight: bolder; text-decoration: underline; color: blue;">Forgot Password ?</p>
+        <p id="excutiveDirector"  (click)="forgotPasswordMethod()"  class="form-text" style="font-size:0.7rem;float: right;font-weight: bolder; cursor: pointer; text-decoration: underline; color: #0d6efd;">Forgot Password? CLICK HERE</p>
         <p id="emailHelp"  *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Password :
                                                                                                     <ul><li>have 6 to 16 valid characters</li>
                                                                                                         <li>have at least a number</li>
