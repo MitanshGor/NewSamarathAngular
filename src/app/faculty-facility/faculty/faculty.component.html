@@ -107,10 +107,6 @@
         <div class="form-group ">
           <label for="exampleInputEmail1">Image</label>
           <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
-       <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
-                                                                                                                                                                                                                                                            <ul><li>Size should be less than 200kb</li>
-                                                                                                                                                                                                                                                                <li>Image should be of type jpg , jpeg , png . </li>
-                                                                                                                                                                                                                                                            </ul> </span></p>
         <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
 
         </div>

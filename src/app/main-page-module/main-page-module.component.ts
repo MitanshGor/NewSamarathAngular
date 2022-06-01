@@ -63,11 +63,11 @@ office2 = [{
 // _id: "6292898e635e9542de103051"
 
 officeBearerForm = new FormGroup({
-  excutiveDirector: new FormControl('', ),
-  director: new FormControl('', ),
-  principal: new FormControl('', ),
-  vicePrincipalDirector: new FormControl('', ),
-  advisor: new FormControl('', ),
+  excutiveDirector: new FormControl(null, ),
+  director: new FormControl(null, ),
+  principal: new FormControl(null, ),
+  vicePrincipalDirector: new FormControl(null, ),
+  advisor: new FormControl(null, ),
 
 
   excutiveDirectorName: new FormControl('', [Validators.required]),
@@ -181,36 +181,27 @@ changeDocData(event:Event,str:string){
 
   if(str=='principal'){
     this.imagePrincipal=(target.files as FileList)[0]
-    console.log("PRINCIPAL CHANGED")
     console.table(this.imagePrincipal)
 
   }
   else if(str=="director"){
     this.imageDirector=(target.files as FileList)[0]
-    console.log("DIRECTOR CHANGED")
-
     console.table(this.imageDirector)
 
   }
   else if(str=='excutiveDirector'){
     this.imageExcutiveDirector=(target.files as FileList)[0]
-    console.log("ExecutiveDorecetor CHANGED")
-
     console.table(this.imageExcutiveDirector)
 
   }
   else if(str=="vicePrincipalDirector"){
     this.imageVicePrincipalDirector=(target.files as FileList)[0]
-    console.log("VPD CHANGED")
-
     console.table(this.imageVicePrincipalDirector)
 
   }
   else if(str="advisor"){
     this.imageAdvisor=(target.files as FileList)[0]
     console.table(this.imageAdvisor)
-    console.log("ADVISOR CHANGED")
-
 
   }
 }

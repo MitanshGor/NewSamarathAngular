@@ -58,7 +58,7 @@ export class FacilityComponent implements OnInit {
       title: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.nameRegex)])),
-      image :new FormControl(),
+      image :new FormControl(null,Validators.required),
       description: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern(this.descriptionRegex)])),

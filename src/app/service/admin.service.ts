@@ -10,12 +10,25 @@ export class AdminService {
 
 
 
+  updateNews(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/updateNews",data);
+  }
+
+  addNews(data:any):Observable<any>{
+    return this.httpClient.post(environment.upload_api_url+"/addNews",data);
+  }
+
   updateOfficeBearner(data:any):Observable<any>{
-    return this,this.httpClient.post(environment.upload_api_url+"/updateOfficeBearer",data)
+    return this.httpClient.post(environment.upload_api_url+"/updateOfficeBearer",data)
   }
 
   deleteGalleryImage(_id:string):Observable<any>{
     return this.httpClient.delete(environment.admin_api_url+"deleteImage/"+_id)
+  }
+
+
+  deleteNewsData(_id:string):Observable<any>{
+    return this.httpClient.delete(environment.admin_api_url+"deleteNews/"+_id)
   }
 
   getAllAdmin():Observable<any>
