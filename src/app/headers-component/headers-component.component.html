@@ -17,11 +17,12 @@
                   <li class="nav__item"><a [routerLink]="['news']" class="nav__link">News</a></li>
                   <!-- <li class="nav__item"><a [routerLink]="['cericulam']" class="nav__link">Curriculum</a></li> -->
                   <li class="nav__item"><a [routerLink]="['f&f']" class="nav__link">Faculty and Facilities</a></li>
-                  <li class="nav__item"><a [routerLink]="['downloads']" class="nav__link">Curriculum</a></li>
-                  <li class="nav__item"><a  [routerLink]="['adminList']" class="nav__link">Admin List</a></li>
+                  <li class="nav__item"><a [routerLink]="['downloads']" class="nav__link">Downloads</a></li>
+                  <li *ngIf='isAdminBoolean' class="nav__item"><a  [routerLink]="['adminList']" class="nav__link">Admin List</a></li>
               </ul>
               <ul class="nav__list nav__list--secondary">
-                  <li class="nav__item"><a [routerLink]="['login']" class="nav__link">Admin Login</a></li>
+                  <li class="nav__item"><a [routerLink]="['login']" class="nav__link">{{loginButton}}</a></li>
+
                   <li class="nav__item"><a [routerLink]="['contactUs']" class="nav__link nav__link--button">Contact Us</a></li>
               </ul>
           </nav>

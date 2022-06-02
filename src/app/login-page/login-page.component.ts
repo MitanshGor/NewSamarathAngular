@@ -1,9 +1,12 @@
+import { HeadersComponentComponent } from './../headers-component/headers-component.component';
+import { AuthBehaviourService } from './../auth-behaviour.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { regexData } from 'src/assets/regex';
 import { AdminService } from '../service/admin.service';
 import { PublicService } from '../service/public.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -16,8 +19,9 @@ export class LoginPageComponent {
   loginForm: FormGroup;
   forgotForm: FormGroup;
 
-
-  constructor(fb: FormBuilder , private adminService : AdminService, private messageService: MessageService) {
+//https://stackoverflow.com/questions/42987293/refresh-header-after-login-in-angular2
+  constructor(fb: FormBuilder ,private router: Router,
+         private adminService : AdminService,private authBeahviour:AuthBehaviourService, private messageService: MessageService, private authBehaviour:AuthBehaviourService) {
 
     this.loginForm = new FormGroup({
       emailID: new FormControl("", Validators.compose([
@@ -33,7 +37,7 @@ export class LoginPageComponent {
       Validators.required,
       Validators.pattern(this.emailRegex)]))
 });
-
+this.isAdmin = this.authBehaviour.isAdmin.getValue()
    }
 
 
@@ -84,7 +88,7 @@ export class LoginPageComponent {
   }
 
 
-
+  isAdmin:Boolean
   loginDataDetails(){
 
     // alert("Here")
@@ -94,10 +98,16 @@ export class LoginPageComponent {
       console.log(res)
       if (res.status == 200) {
         console.log(res)
-        localStorage.setItem("authToken",JSON.stringify(res.data))
+      //  localStorage.setItem("authToken",JSON.stringify(res.data))
         // alert("login done");
         // this..authToken.next(resp.data.authToken)
+        this.authBeahviour.isAdmin.next(true)
+       // this.headersComponentComponent.ngOnInit()
         this.messageService.add({ key: 'toast', severity: 'success', summary: 'Successful Login', detail: res.message });
+       setTimeout(() =>{
+        this.router.navigateByUrl('/')
+       
+       },1000)
       }
       else{
         this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Invalid Details', detail: res.message });

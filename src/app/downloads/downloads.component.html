@@ -37,7 +37,7 @@
   </div>
 
   <span  *ngIf="newsHeading.length!=0"  ><button class="buttonStyle" (click)="showModalDialog(newsHeading)">Update</button></span>
-  <span  *ngIf="newsHeading.startsWith('Q')"  ><a pButton pRipple    (click)="showConfirm(std,year)" label="Delete"  class="p-button-danger"  ></a></span>
+  <span  *ngIf="newsHeading.startsWith('Q')"  ><a pButton pRipple    (click)="showConfirm(std,year)" label="Delete"  class="p-button-danger buttonStyle"  ></a></span>
   
   <button class="buttonStyle" (click)="showModalDialog1()">Add Question Paper</button>
   
