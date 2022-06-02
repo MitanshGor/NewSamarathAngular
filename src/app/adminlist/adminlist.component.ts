@@ -1,8 +1,10 @@
+import { AuthBehaviourService } from './../auth-behaviour.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { regexData } from 'src/assets/regex';
 import { AdminService } from '../service/admin.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,8 +23,11 @@ export class AdminlistComponent implements OnInit {
   // UpdateAdmin : FormGroup;
 
 
-  constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService, private adminService: AdminService) {
-
+  constructor(private primengConfig: PrimeNGConfig,public authBehav:AuthBehaviourService,private router:Router, private messageService: MessageService, private adminService: AdminService) {
+  
+    if(!authBehav.isAdmin.getValue()){
+      router.navigateByUrl('/login')
+    }
 
     this.addAdmin = new FormGroup({
       _id : new FormControl(""),

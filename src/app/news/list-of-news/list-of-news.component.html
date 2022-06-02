@@ -80,7 +80,7 @@
         <div class="form-group ">
           <label for="exampleInputEmail1">Description</label>
           <textarea  class="form-control" id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;" placeholder="Description of the Facility"></textarea>
-          <p id="emailHelp"  *ngIf="addNews.get('description')?.touched && addNews.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be less than 600 characters</span></p>
+          <p id="emailHelp"  *ngIf="addNews.get('description')?.touched && addNews.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be less than 600 characters but greater than 320.</span></p>
         </div>
         <br>
         <button [disabled]="!addNews?.valid"  (click)="aboutUsSubmit()"class="btn btn-primary" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">Submit</button>
@@ -108,7 +108,7 @@
           <div class="form-group ">
             <label for="exampleInputEmail1">Description</label>
             <textarea maxlength="550" class="form-control"  style="padding: 0.375rem 0.75rem;border: 1px solid #ced4da;"  id="exampleInputEmail1" formControlName="description"  aria-describedby="excutiveDirector" placeholder="Discription of the Facility"></textarea>
-            <p id="emailHelp"  *ngIf="updateNews.get('description')?.touched && updateNews.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be less than 600 characters</span></p>
+            <p id="emailHelp"  *ngIf="updateNews.get('description')?.touched && updateNews.get('description')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px; ">Description size should be less than 600 characters but greater than 320.</span></p>
           </div>
       </form>
         <br>

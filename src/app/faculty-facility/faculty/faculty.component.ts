@@ -16,7 +16,7 @@ export class FacultyComponent implements OnInit {
 
 
 
-  state!: any[];;
+  state: any[];
   addFaculty : FormGroup;
   isAdminBoolean:Boolean
   nameRegex = regexData.name;
@@ -25,7 +25,7 @@ export class FacultyComponent implements OnInit {
     this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
     this.getAllDataOfFacultyAndFacility();
-
+    this.state = [];
  this.image = new File([""],""),
 
     this.addFaculty = new FormGroup({

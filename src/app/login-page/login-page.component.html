@@ -4,13 +4,13 @@
     <form [formGroup]="loginForm"    >
       <div class="form-group">
         <label for="exampleFormControlInput1" required>Email</label>
-        <input type="email" class="form-control" formControlName="emailID"  id="exampleFormControlInput1" placeholder="emailID"  value="">
+        <input type="email" class="form-control" formControlName="emailID" id="exampleFormControlInput1" placeholder="emailID"  value="pjap041@gmail.com">
         <p id="emailHelp"  *ngIf="loginForm.get('emailID')?.touched && loginForm.get('emailID')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Email</span></p>
 
       </div>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Password</label>
-        <input type="password" class="form-control"  formControlName="password" id="exampleFormControlInput1" placeholder="password">
+        <label for="exampleFormControlInput2">Password</label>
+        <input type="password" class="form-control"  formControlName="password" value="Jap@2022" id="exampleFormControlInput2" placeholder="password">
         <p id="excutiveDirector"  (click)="forgotPasswordMethod()"  class="form-text" style="font-size:0.7rem;float: right;font-weight: bolder; cursor: pointer; text-decoration: underline; color: #0d6efd;">Forgot Password? CLICK HERE</p>
         <p id="emailHelp"  *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Password :
                                                                                                     <ul><li>have 6 to 16 valid characters</li>

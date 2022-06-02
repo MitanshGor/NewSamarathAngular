@@ -18,7 +18,7 @@
     text-decoration: underline;
   }
 
-  .section{
+  .section1{
       display: flex;
       flex-direction: column;
       width:100%;
@@ -46,7 +46,7 @@
             max-width:none;
             border-radius: 20px;
         }
-        .section{
+        .section1{
             justify-content: space-around;
             align-items: center;
             flex-direction: row;

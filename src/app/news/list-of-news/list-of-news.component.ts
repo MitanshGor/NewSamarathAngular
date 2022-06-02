@@ -167,6 +167,7 @@ aboutUsSubmit(){
 
       this.image = new File([""],"")
       this.addNews.reset();
+     
 
     }
     else if(res.status==-2){
@@ -224,10 +225,9 @@ updateNewsData(){
 
       this.item.data = this.item.data.map(obj => obj._id===res.data._id ? res.data : obj);
       this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
-
       this.image = new File([""],"")
       this.updateNews.reset();
-
+      this.displayModalUpdate=false;     
     }
     else if(res.status==-2){
       this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Warning', detail: res.message });

@@ -2,7 +2,7 @@
     <div class="addBtn">
       <a *ngIf="isAdminBoolean"  class="update" (click)="showModalDialog()">Add</a>
   </div>
-  <div class="section container-fluid" style="overflow-x:auto;">
+  <div class="container-fluid" style="overflow-x:auto;">
 
 
     <div *ngIf="state.length==0">
@@ -65,8 +65,8 @@
           <p id="emailHelp"  *ngIf="addFaculty.get('facultyName')?.touched && addFaculty.get('facultyName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Facility</span></p>
         </div>
         <div class="form-group ">
-          <label for="exampleInputEmail1">Image</label>
-          <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
+          <label for="exampleInputEmail2">Image</label>
+          <input type="file" class="form-control" id="exampleInputEmail2" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
        <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Image :
                                                                                                                                                                                                                                                             <ul><li>Size should be less than 200kb</li>
                                                                                                                                                                                                                                                                 <li>Image should be of type jpg , jpeg , png . </li>

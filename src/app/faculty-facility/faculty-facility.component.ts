@@ -14,8 +14,9 @@ export class FacultyFacilityComponent implements OnInit{
   title="title";
   constructor(private  publicService: PublicService,private _dataService:DataService){}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  //   throw new Error('Method not implemented.');
+  //
+ }
 
 
 

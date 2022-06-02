@@ -59,7 +59,7 @@ export class DownloadsModuleComponent implements OnInit  {
     this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
   })
 
-  throw new Error('Method not implemented.');
+  // throw new Error('Method not implemented.');
 }
 
   constructor( private domSanitizer: DomSanitizer,private publicService:PublicService,private messageService: MessageService,private adminService:AdminService,private authBehavior:AuthBehaviourService){
@@ -142,6 +142,10 @@ export class DownloadsModuleComponent implements OnInit  {
 
     }else if(data==='Question Bank'){
       this.dialogTitle = 'Update Question Paper'
+      this.updateAddQuestion.patchValue({
+        'standard': this.std,
+        'year': this.year
+      })
     }else if(data==='Exam Schedule'){
       this.dialogTitle = 'Update Exam Schedule'
       this.updateDoc.patchValue({

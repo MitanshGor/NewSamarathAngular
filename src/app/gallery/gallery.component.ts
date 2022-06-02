@@ -22,6 +22,7 @@ export class GalleryModuleComponenet {
     this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
     this.radioName=""
+    this.ngOnInit()
   }
 
   ngOnInit() {
@@ -83,6 +84,7 @@ export class GalleryModuleComponenet {
   }
   displayModal: boolean = false;
   showModalDialog() {
+    this.image = new File([""],"")    
     this.displayModal = true;
   }
 

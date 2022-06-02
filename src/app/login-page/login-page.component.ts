@@ -24,10 +24,10 @@ export class LoginPageComponent {
          private adminService : AdminService,private authBeahviour:AuthBehaviourService, private messageService: MessageService, private authBehaviour:AuthBehaviourService) {
 
     this.loginForm = new FormGroup({
-      emailID: new FormControl("", Validators.compose([
+      emailID: new FormControl("pjap041@gmail.com", Validators.compose([
         Validators.required,
         Validators.pattern(this.emailRegex)])),
-        password: new FormControl("", Validators.compose([
+        password: new FormControl("Jap@2022", Validators.compose([
         Validators.required,
         Validators.pattern(this.passwordRegex)])),
   });

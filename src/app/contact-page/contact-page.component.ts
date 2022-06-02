@@ -39,7 +39,7 @@ export class ContactPageComponent {
 
   contactForm: FormGroup;
 
-  constructor(fb: FormBuilder , private adminService :  AdminService , private messageService : MessageService, private publicService : PublicService,private authBehavior:AuthBehaviourService) {
+  constructor(fb: FormBuilder , private adminService :  AdminService , private messageService : MessageService, private publicService : PublicService,public authBehavior:AuthBehaviourService) {
 
     this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 

@@ -28,8 +28,7 @@ export class NewsModuleComponent {
 
   constructor(private publicService:PublicService,private authBehavior:AuthBehaviourService){
     this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
-
-
+    
   }
   getApiData : any;
   ngOnInit(): void {
@@ -43,6 +42,8 @@ export class NewsModuleComponent {
       this.data2 = res.data;
       console.log("RES DATA")
       console.log(this.data2)
+      this.clickNews("School Achievements")
+
     },err=>{
 
     } )
