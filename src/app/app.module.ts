@@ -4,7 +4,7 @@ import { NewsModuleComponent } from './news/news.component';
 import { FacultyFacilityComponent } from './faculty-facility/faculty-facility.component';
 import { RouterModule } from '@angular/router';
 import { MainPageModuleModule } from './main-page-module/main-page-module.module';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Inject } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -62,7 +62,7 @@ import { MessageService } from 'primeng/api';
      BrowserAnimationsModule,
      DialogModule,
      ButtonModule,
-
+    
 
 
      CommonModule,

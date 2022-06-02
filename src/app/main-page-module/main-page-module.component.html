@@ -28,7 +28,7 @@
       <ul [innerHTML]="aboutUsDetails">
 
       </ul>
-      <a class="edit-btn office" (click)="showModalDialog()" label="Show">Edit Details</a>
+      <a class="edit-btn office" *ngIf="isAdminBoolean" (click)="showModalDialog()" label="Show">Edit Details</a>
     </div>
 
     <p-dialog header="Edit Detail About Us" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
@@ -55,8 +55,8 @@
     <!-- OFFICE BEARIERE !!!!!!!1 -->
     <!-- OFFICE BEARIERE !!!!!!!1 -->
 
-    <div class="office section">
-      <div class="heading">Office Bearer</div>
+    <div class="office section" [ngStyle]="{'padding-top': (!isAdminBoolean)? '0px':'7rem'}" style="padding-top:0px;" >
+      <div class="heading"  >Office Bearer</div>
       <div class="office">
         <div class="office1" >
             <app-office-bearer-image-component class="app-office-bearer-image-component" *ngFor="let office of office1;"  [info]="office" ></app-office-bearer-image-component>

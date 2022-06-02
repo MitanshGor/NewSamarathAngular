@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../auth-behaviour.service';
 import { Admin } from './../../interfaces/admin';
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Renderer2, OnInit, Inject } from '@angular/core';
@@ -82,7 +83,7 @@ aboutUsForm = new FormGroup({
   description :  new FormControl("", [Validators.required])
 })
 
-constructor(private primengConfig: PrimeNGConfig ,private adminService: AdminService ,private publicService:PublicService, private messageService: MessageService) {
+constructor(private primengConfig: PrimeNGConfig ,private authBehavior:AuthBehaviourService,private adminService: AdminService ,private publicService:PublicService, private messageService: MessageService) {
 
 
   this.imageAdvisor = new File([""],"")
@@ -90,9 +91,10 @@ constructor(private primengConfig: PrimeNGConfig ,private adminService: AdminSer
   this.imageDirector = new File([""],"")
   this.imageExcutiveDirector = new File([""],"")
   this.imageVicePrincipalDirector = new File([""],"")
+  this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
 }
-
+isAdminBoolean:Boolean
 imageAdvisor:File;
 imagePrincipal:File;
 imageDirector:File;
