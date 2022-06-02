@@ -41,12 +41,12 @@ export class GalleryModuleComponenet {
     const target = event.target as HTMLInputElement
 
     this.image=(target.files as FileList)[0]
-    console.log("WIWIWIWIW")
+
     console.table(this.image)
   }
 
   removeAddImage(){
-
+    console.table("MIT");
     this.image = new File([""],"")
   }
 
