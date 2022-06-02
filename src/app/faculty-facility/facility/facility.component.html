@@ -1,5 +1,5 @@
 <div class="addBtn">
-  <a class="update" (click)="showModalDialog()">Add</a>
+  <a *ngIf="isAdminBoolean"  class="update" (click)="showModalDialog()">Add</a>
 </div>
 <div class="facilities">
 <!--
@@ -18,12 +18,12 @@ _id: "625ad21527d41c241710ff60"
           <div class="title">
               <span hidden>{{item._id}}</span>
               <p class="heading">{{item.title}}</p>
-              <div class="buttons">
-                <a   pButton pRipple (click)="showConfirm(item._id)" label="Delete"  class="p-button-danger" ></a>
-                <a class="update" (click)="updateShowModalDialog(item._id)">Update</a>
+              <div *ngIf="isAdminBoolean"  class="buttons">
+                <a *ngIf="isAdminBoolean"    pButton pRipple (click)="showConfirm(item._id)" label="Delete"  class="p-button-danger" ></a>
+                <a *ngIf="isAdminBoolean"  class="update" (click)="updateShowModalDialog(item._id)">Update</a>
               </div>
           </div>
-          <p style="" >{{item.description}}</p>
+          <p>{{item.description}}</p>
           <p style=" width: 100%; text-align: right; font-size: 0.65rem;" ><b>Last Updated At :</b> {{item.updatedAt | date}} <br> <b>Created At :</b> {{item.createdAt | date}}</p>
       </div>
       <!-- <img src="../../../assets/images/10.jpg"> -->

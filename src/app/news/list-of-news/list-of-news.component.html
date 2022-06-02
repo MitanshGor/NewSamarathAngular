@@ -5,7 +5,7 @@
          {{newsType}}
       </div>
       <div class="addBtn">
-        <a class="update" (click)="showModalDialog()">Add</a>
+        <a *ngIf="isAdminBoolean"  class="update" (click)="showModalDialog()">Add</a>
       </div>
     </div>
 
@@ -39,8 +39,8 @@
           <div class="title">
               <p class="heading">{{news.title}}</p>
               <div class="buttons">
-                <a  type="button" pButton pRipple (click)="showConfirm(news._id)" label="Confirm"  class="p-button-danger" >Delete</a>
-                <a class="update" (click)="showModalDialogForOfficeBearer(news._id)" >Update</a>
+                <a *ngIf="isAdminBoolean"  type="button" pButton pRipple (click)="showConfirm(news._id)" label="Confirm"  class="p-button-danger" >Delete</a>
+                <a *ngIf="isAdminBoolean"  class="update" (click)="showModalDialogForOfficeBearer(news._id)" >Update</a>
               </div>
           </div>
           <p>{{news.description}}</p>

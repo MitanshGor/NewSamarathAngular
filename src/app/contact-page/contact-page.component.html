@@ -1,7 +1,7 @@
 <div class="section">
   <div class="leftContact">
       <form class="container-fluid" [formGroup]="contactForm">
-          <h3 class="text-left heading2">Book an appointment       <button class="btn btn-primary" *ngIf="isAdmin"  (click)="exccelMethod()" style="margin-left:30px">Download the appointments list</button></h3>
+          <h3 class="text-left heading2">Book an appointment       <button class="btn btn-primary" *ngIf="isAdminBoolean"    (click)="exccelMethod()" style="margin-left:30px">Download the appointments list</button></h3>
           <br>
           <div class="form-group">
               <label for="exampleInputEmail1">Name</label>

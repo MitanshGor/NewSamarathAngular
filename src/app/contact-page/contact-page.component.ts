@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../auth-behaviour.service';
 import { AdminService } from './../service/admin.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, ElementRef, HostListener } from '@angular/core';
@@ -18,14 +19,13 @@ import { PublicService } from '../service/public.service';
 export class ContactPageComponent {
 
   title="title";
-
+  isAdminBoolean:Boolean
   emailRegex = regexData.email;
   passwordRegex = regexData.password;
   nameRegex = regexData.name;
   contactRegex = regexData.contact;
 
 
-  isAdmin =false;
 //   Without it, your current regex only matches that you have 6 to 16 valid characters, it doesn't
 //   validate that it has at least a number, and at least a special character. That's what the lookahead above is for.
 
@@ -35,12 +35,13 @@ export class ContactPageComponent {
     ngOnInit(){
 
       var x = JSON.parse(localStorage.getItem("authToken") || "").roleName;
-      this.isAdmin =  (x=="ADMIN" || x=="SUPER ADMIN") ? true : false;
     }
 
   contactForm: FormGroup;
 
-  constructor(fb: FormBuilder , private adminService :  AdminService , private messageService : MessageService, private publicService : PublicService) {
+  constructor(fb: FormBuilder , private adminService :  AdminService , private messageService : MessageService, private publicService : PublicService,private authBehavior:AuthBehaviourService) {
+
+    this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
           this.contactForm = new FormGroup({
             name: new FormControl("", Validators.compose([

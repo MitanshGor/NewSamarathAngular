@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { PrimeNGConfig, MessageService } from 'primeng/api';
 import { AdminService } from '../service/admin.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AuthBehaviourService } from '../auth-behaviour.service';
 
 @Component({
   selector: 'main-page-module',
@@ -16,8 +17,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class GalleryModuleComponenet {
 
-  constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService, private publicService: PublicService, private adminService:AdminService, private sanitizer: DomSanitizer) {
+  constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService,private authBehavior:AuthBehaviourService, private publicService: PublicService, private adminService:AdminService, private sanitizer: DomSanitizer) {
     this.image = new File([""],"")
+    this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
     this.radioName=""
   }
@@ -29,7 +31,7 @@ export class GalleryModuleComponenet {
   }
 
   image : File;
-
+  isAdminBoolean:Boolean
   radioName:String;
   initialValue:number = 0;
   endValue:number = 0;
@@ -41,12 +43,12 @@ export class GalleryModuleComponenet {
     const target = event.target as HTMLInputElement
 
     this.image=(target.files as FileList)[0]
-    console.log("WIWIWIWIW")
+
     console.table(this.image)
   }
 
   removeAddImage(){
-
+    console.table("MIT");
     this.image = new File([""],"")
   }
 

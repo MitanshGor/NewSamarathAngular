@@ -1,6 +1,6 @@
 
     <div class="addBtn">
-      <a class="update" (click)="showModalDialog()">Add</a>
+      <a *ngIf="isAdminBoolean"  class="update" (click)="showModalDialog()">Add</a>
   </div>
   <div class="section container-fluid" style="overflow-x:auto;">
 
@@ -16,7 +16,7 @@
           <th scope="col">Full name</th>
           <th scope="col">Designation</th>
           <th scope="col">Joining Date</th>
-          <th scope="col">Action</th>
+          <th *ngIf="isAdminBoolean"  scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -25,8 +25,8 @@
           <td><img src="{{item.photoURL}}" alt="teachers name"></td>
           <td>{{item.facultyName}}</td>
           <td>{{item.designation}}</td>
-          <td>{{item.createdAt | date}}</td>
-          <td><a pButton pRipple    (click)="showConfirm(item._id)"label="Delete"  class="p-button-danger"  ></a>&nbsp;&nbsp;&nbsp;<a pButton pRipple    (click)="showModalDialogUpdate(item._id)"label="Update"  class="p-button-info"  ></a></td>
+          <td >{{item.createdAt | date}}</td>
+          <td *ngIf="isAdminBoolean" ><a pButton pRipple    (click)="showConfirm(item._id)"label="Delete"  class="p-button-danger"  ></a>&nbsp;&nbsp;&nbsp;<a pButton pRipple    (click)="showModalDialogUpdate(item._id)"label="Update"  class="p-button-info"  ></a></td>
         </tr>
       </tbody>
     </table>
@@ -90,7 +90,7 @@
 
 
 <p-dialog header="Update Faculty Details" [(visible)]="displayModalUpdate" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
-[draggable]="true" [resizable]="false" >
+[draggable]="true" [resizable]="false"    >
 
 
   <form [formGroup]="addFaculty">
@@ -107,7 +107,7 @@
         <div class="form-group ">
           <label for="exampleInputEmail1">Image</label>
           <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image" (change)="changeDocData($event)"   aria-describedby="excutiveDirector" accept=".jpeg, .png, .jpg" placeholder="Image of Faculty">
-        <p id="emailHelp"  *ngIf="addFaculty.get('image')?.touched && addFaculty.get('image')?.valid == true" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
+        <p id="emailHelp"  *ngIf="image.size!=0" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;cursor: pointer; text-decoration:underline;" (click)="removeAddImage()">Click here to remove the image !!!</span></p>
 
         </div>
         <div class="form-group ">

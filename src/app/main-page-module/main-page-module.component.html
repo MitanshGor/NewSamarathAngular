@@ -64,7 +64,7 @@
         <div class="office2" >
           <app-office-bearer-image-component class="app-office-bearer-image-component"  *ngFor="let office of office2;" [info]="office" ></app-office-bearer-image-component>
         </div>
-        <a class="edit-btn office" (click)="showModalDialogForOfficeBearer()">Edit Office  Bearier Details</a>
+        <a class="edit-btn office" *ngIf="isAdminBoolean"  (click)="showModalDialogForOfficeBearer()">Edit Office  Bearier Details</a>
       </div>
     </div>
 
@@ -126,7 +126,6 @@
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Vice-Principal Name</label>
-                <!-- {{} -->
                 <input type="text" class="form-control" id="exampleInputEmail1" formControlName="vicePrincipalDirectorName"  placeholder="Enter Vice-Principal Director Name">
                 <p id="emailHelp"  *ngIf="officeBearerForm.get('vicePrincipalDirectorName')?.touched && officeBearerForm.get('vicePrincipalDirectorName')?.valid == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Name</span></p>
               </div>
@@ -209,20 +208,14 @@
   <!-- <h3 class="tex.t-left heading2">Form Group</h3><br> -->
             <!-- <div class="form-group">
               <label for="exampleInputEmail1">Name</label>
-<<<<<<< HEAD
               <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter Name">
-=======
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">File</label>
-<<<<<<< HEAD
             <input type="file" class="form-control" id="exampleInputEmail1"  accept=".jpeg, .png, .jpg" placeholder="Enter Name">
-=======
             <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" accept=".jpeg, .png, .jpg" placeholder="Enter Name">
->>>>>>> d867d162921e4b36b5095bc0d861ab90ef185130
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
 

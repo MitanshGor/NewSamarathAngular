@@ -36,11 +36,11 @@
     {{newsHeading}}
   </div>
 
-  <span  *ngIf="newsHeading.length!=0"  ><button class="buttonStyle" (click)="showModalDialog(newsHeading)">Update</button></span>
-  <span  *ngIf="newsHeading.startsWith('Q')"  ><a pButton pRipple    (click)="showConfirm(std,year)" label="Delete"  class="p-button-danger buttonStyle"  ></a></span>
-  
-  <button class="buttonStyle" (click)="showModalDialog1()">Add Question Paper</button>
-  
+  <span  *ngIf="newsHeading.length!=0 && isAdminBoolean"   ><button class="buttonStyle" (click)="showModalDialog(newsHeading)">Update</button></span>
+  <span  *ngIf="newsHeading.startsWith('Q') && isAdminBoolean" ><a pButton pRipple    (click)="showConfirm(std,year)" label="Delete"  class="p-button-danger buttonStyle"  ></a></span>
+
+  <button class="buttonStyle" *ngIf="isAdminBoolean"  (click)="showModalDialog1()">Add Question Paper</button>
+
   <object scrolling="no">
       <iframe   width="100%" height="100%"  class="pdf" [src]="clickeDataPdf" ></iframe>
   </object>
@@ -79,7 +79,7 @@
 
   <span *ngIf="dialogTitle === 'Update Question Paper' || dialogTitle ==='Add Question Paper'">
     <form [formGroup]="updateAddQuestion">
-    
+
       <div class="form-group ">
         <label for="exampleInputEmail1">Standard</label><br>
         <select class="form-control"  style="border: 1px #2196F3 solid;" formControlName="standard">
@@ -95,7 +95,7 @@
           <option value="9">9 Grade</option>
           <option value="10">10 Grade</option>
           <option value="11">11 Grade</option>
-          <option value="12">12 Grade</option>          
+          <option value="12">12 Grade</option>
         </select>
         <p id="emailHelp"  *ngIf="updateAddQuestion.get('standard')?.touched && updateAddQuestion.get('standard')?.dirty == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Standard</span></p>
       </div>
@@ -103,7 +103,7 @@
         <label for="exampleInputEmail1">Year</label><br>
         <select class="form-control"  style="border: 1px #2196F3 solid;" formControlName="year">
           <!-- <select default>Select Standard</select> -->
-              <option  *ngFor='let d of dropYear' [value]="d" >{{d}}</option>            
+              <option  *ngFor='let d of dropYear' [value]="d" >{{d}}</option>
         </select>
         <p id="emailHelp"  *ngIf="updateAddQuestion.get('year')?.touched && updateAddQuestion.get('year')?.dirty == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Year</span></p>
       </div>
@@ -121,7 +121,7 @@
       <button [disabled]="!updateAddQuestion?.valid"  (click)="updateAddQuestionSubmit()" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;" class="btn btn-primary">Submit</button>
             &nbsp;
       <button  (click)="cancelSubmit()"class="btn btn-danger" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">Close</button>
-    </form>        
+    </form>
   </span>
   <span *ngIf="!(dialogTitle === 'Update Question Paper' || dialogTitle ==='Add Question Paper')">
     <form [formGroup]="updateDoc">
@@ -142,9 +142,9 @@
           <button [disabled]="!updateDoc?.valid"  (click)="updateDocSubmit()" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;" class="btn btn-primary">Submit</button>
           &nbsp;
           <button  (click)="cancelSubmit()"class="btn btn-danger" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">Close</button>
-        </form>  
+        </form>
   </span>
-  
+
   <br>
 
   <!-- <button type="submit" class="btn btn-primary" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">Submit</button> -->
@@ -155,7 +155,7 @@
 [draggable]="true" [resizable]="false" [closable]="false" >
 
     <form [formGroup]="updateAddQuestion">
-    
+
       <div class="form-group ">
         <label for="exampleInputEmail1">Standard</label><br>
         <select class="form-control"  style="border: 1px #2196F3 solid;" formControlName="standard">
@@ -171,7 +171,7 @@
           <option value="9">9 Grade</option>
           <option value="10">10 Grade</option>
           <option value="11">11 Grade</option>
-          <option value="12">12 Grade</option>          
+          <option value="12">12 Grade</option>
         </select>
         <p id="emailHelp"  *ngIf="updateAddQuestion.get('standard')?.touched && updateAddQuestion.get('standard')?.dirty == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Standard</span></p>
       </div>
@@ -179,7 +179,7 @@
         <label for="exampleInputEmail1">Year</label><br>
         <select class="form-control"  style="border: 1px #2196F3 solid;" formControlName="year">
           <!-- <select default>Select Standard</select> -->
-              <option  *ngFor='let d of dropYear' [value]="d" >{{d}}</option>            
+              <option  *ngFor='let d of dropYear' [value]="d" >{{d}}</option>
         </select>
         <p id="emailHelp"  *ngIf="updateAddQuestion.get('year')?.touched && updateAddQuestion.get('year')?.dirty == false" class="form-text text-muted" style="margin: 0px;padding:0px;"><span style="color:red;font-size:0.6rem;font-weight:bolder;margin: 0px; padding: 0px;">Invalid Year</span></p>
       </div>
@@ -197,8 +197,8 @@
       <button [disabled]="!updateAddQuestion?.valid"  (click)="addQuestionSubmit()" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;" class="btn btn-primary">Submit</button>
             &nbsp;
       <button  (click)="cancelSubmit()"class="btn btn-danger" style="padding: 0.375rem 0.75rem;font-size: 1rem;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">Close</button>
-    </form>        
-  
+    </form>
+
 </p-dialog>
 
 <p-toast key="toast" position="top-right" ></p-toast>

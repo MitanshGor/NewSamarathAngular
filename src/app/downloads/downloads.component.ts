@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../auth-behaviour.service';
 import { AdminService } from 'src/app/service/admin.service';
 import { PublicService } from './../service/public.service';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class DownloadsModuleComponent implements OnInit  {
 
   title = "title";
+  isAdminBoolean:Boolean
   dialogTitle: any;
   nodes2!: any[];
   // itsSafe !: SafeHtml;
@@ -52,32 +54,34 @@ export class DownloadsModuleComponent implements OnInit  {
   this.publicService.getExamPaper().subscribe(res=>{
     console.log(res.data)
     this.QuesPapaer = this.formQuesPaper(res.data);
-    
+
   },err=>{
-    this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });    
+    this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err });
   })
 
   throw new Error('Method not implemented.');
 }
 
-  constructor( private domSanitizer: DomSanitizer,private publicService:PublicService,private messageService: MessageService,private adminService:AdminService){
+  constructor( private domSanitizer: DomSanitizer,private publicService:PublicService,private messageService: MessageService,private adminService:AdminService,private authBehavior:AuthBehaviourService){
     this.image = new File([""],"")
     this.dropYear = []
+    this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
+
     for(var i=1990;i<=(new Date().getFullYear());i++ ){
-      this.dropYear.push(i)     
+      this.dropYear.push(i)
     }
     this.updateDoc = new FormGroup({
       updateType : new FormControl(""),
       image :new FormControl(Validators.required),
     })
-    
+
     this.updateAddQuestion = new FormGroup({
       standard : new FormControl("",Validators.required),
       year: new FormControl("", Validators.required),
       image :new FormControl(Validators.required),
     })
   }
-  formQuesPaper(data:any){    
+  formQuesPaper(data:any){
     var dataToSet = []
     for(let d in data){
       var o = {
@@ -120,7 +124,7 @@ export class DownloadsModuleComponent implements OnInit  {
   }
   showModalDialog(data:any) {
     if(data==='Almanac Form'){
-      this.dialogTitle = "Update Almance Form" 
+      this.dialogTitle = "Update Almance Form"
       this.updateDoc.patchValue({
         'updateType':data
       })
@@ -129,26 +133,26 @@ export class DownloadsModuleComponent implements OnInit  {
       this.updateDoc.patchValue({
         'updateType':data
       })
-    
+
     }else if(data==='Fees Structure'){
       this.dialogTitle = 'Update Fees Structure'
       this.updateDoc.patchValue({
         'updateType':data
       })
-    
+
     }else if(data==='Question Bank'){
-      this.dialogTitle = 'Update Question Paper'    
+      this.dialogTitle = 'Update Question Paper'
     }else if(data==='Exam Schedule'){
       this.dialogTitle = 'Update Exam Schedule'
       this.updateDoc.patchValue({
         'updateType':data
       })
-    
+
     }else{
       this.dialogTitle = data
       this.updateDoc.patchValue({
         'updateType':data
-      })    
+      })
     }
     // console.log(data)
     this.displayModal = true;
@@ -181,7 +185,7 @@ export class DownloadsModuleComponent implements OnInit  {
       this.adminService.updateAlmanac(formData).subscribe(res=>{
         if(res.status==200){
           this.almanacForm = res.data.url
-          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });      
+          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
           this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(this.almanacForm);
         }
         else if(res.status==-2){
@@ -191,15 +195,15 @@ export class DownloadsModuleComponent implements OnInit  {
           this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
         }
       },err=>{
-        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});     
+        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});
       })
     }
-    // 
+    //
     else if(this.updateDoc.value.updateType==='Holidays and Vacation'){
       this.adminService.updateHoliday(formData).subscribe(res=>{
         if(res.status==200){
           this.holidayAndVacation = res.data.url
-          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });      
+          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
           this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(this.holidayAndVacation);
         }
         else if(res.status==-2){
@@ -209,7 +213,7 @@ export class DownloadsModuleComponent implements OnInit  {
           this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
         }
       },err=>{
-        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});     
+        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});
       })
     }
     //Fees Structure
@@ -217,7 +221,7 @@ export class DownloadsModuleComponent implements OnInit  {
       this.adminService.updateFessStructure(formData).subscribe(res=>{
         if(res.status==200){
           this.feesStructure = res.data.url
-          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });      
+          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
           this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(this.feesStructure);
         }
         else if(res.status==-2){
@@ -227,7 +231,7 @@ export class DownloadsModuleComponent implements OnInit  {
           this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
         }
       },err=>{
-        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});     
+        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});
       })
     }
     //Exam Schedule
@@ -235,7 +239,7 @@ export class DownloadsModuleComponent implements OnInit  {
       this.adminService.updateExamSchedule(formData).subscribe(res=>{
         if(res.status==200){
           this.examSchedule = res.data.url
-          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });      
+          this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
           this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(this.examSchedule);
         }
         else if(res.status==-2){
@@ -245,10 +249,10 @@ export class DownloadsModuleComponent implements OnInit  {
           this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
         }
       },err=>{
-        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});     
+        this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});
       })
     }
-    this.cancelSubmit()   
+    this.cancelSubmit()
   }
   updateAddQuestionSubmit(){
     var formData = new FormData();
@@ -258,8 +262,8 @@ export class DownloadsModuleComponent implements OnInit  {
     this.adminService.addUpdateExamPaper(formData).subscribe(res=>{
       if(res.status==200){
         this.QuesPapaer=this.formQuesPaper(res.data)
-        this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(res.data[this.std][this.year]);        
-        this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });      
+        this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(res.data[this.std][this.year]);
+        this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
       }
       else if(res.status==-2){
         this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Warning', detail: res.message });
@@ -267,9 +271,9 @@ export class DownloadsModuleComponent implements OnInit  {
       else if(res.status==-1){
         this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
       }
-    },err=>{   
-      this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});     
-    })    
+    },err=>{
+      this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});
+    })
     this.cancelSubmit()
   }
   addQuestionSubmit(){
@@ -280,8 +284,8 @@ export class DownloadsModuleComponent implements OnInit  {
     this.adminService.addUpdateExamPaper(formData).subscribe(res=>{
       if(res.status==200){
         this.QuesPapaer=this.formQuesPaper(res.data)
-        //this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(res.data[this.std][this.year]);        
-        this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });      
+        //this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl(res.data[this.std][this.year]);
+        this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
       }
       else if(res.status==-2){
         this.messageService.add({ key: 'toast', severity: 'warn', summary: 'Warning', detail: res.message });
@@ -289,9 +293,9 @@ export class DownloadsModuleComponent implements OnInit  {
       else if(res.status==-1){
         this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: res.message });
       }
-    },err=>{   
-      this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});     
-    })    
+    },err=>{
+      this.messageService.add({ key: 'toast', severity: 'error', summary: 'Error', detail: err});
+    })
     this.cancelSubmit()
   }
   showConfirm(standard:any,year:any) {
@@ -306,7 +310,7 @@ export class DownloadsModuleComponent implements OnInit  {
 
 
       if(res.status==200){
-        this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl('');        
+        this.clickeDataPdf=this.domSanitizer.bypassSecurityTrustResourceUrl('');
         this.QuesPapaer = this.formQuesPaper(res.data)
         this.messageService.add({ key: 'toast', severity: 'success', summary: 'Success', detail: res.message });
       }
