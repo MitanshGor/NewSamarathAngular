@@ -64,7 +64,7 @@
         <div class="office2" >
           <app-office-bearer-image-component class="app-office-bearer-image-component"  *ngFor="let office of office2;" [info]="office" ></app-office-bearer-image-component>
         </div>
-        <a class="edit-btn office" (click)="showModalDialogForOfficeBearer()">Edit Office  Bearier Details</a>
+        <a class="edit-btn office" *ngIf="isAdminBoolean"  (click)="showModalDialogForOfficeBearer()">Edit Office  Bearier Details</a>
       </div>
     </div>
 
