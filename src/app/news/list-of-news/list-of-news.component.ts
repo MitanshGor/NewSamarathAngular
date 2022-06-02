@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../../auth-behaviour.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NewsModel } from './../../../interfaces/news-model';
 
@@ -31,13 +32,15 @@ export class ListOfNewsComponent implements OnInit , OnChanges {
 
   addNews : FormGroup;
   updateNews : FormGroup;
+  isAdminBoolean: boolean;
   // updateFacility : FormGroup;
 
 
 
-  constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService , private adminService:AdminService) {
+  constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService , private adminService:AdminService,private authBehavior:AuthBehaviourService) {
     // this.item = null;
     // this.image = new File([""],""),
+    this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
     this.image = new File([""],""),
     this.addNews = new FormGroup({

@@ -1,14 +1,14 @@
 <div class="section">
   <div class="heading">
     <p>Gallery !!! </p>
-    <a (click)="showModalDialog()" class="edit-btn">Add new</a>
+    <a *ngIf="isAdminBoolean" (click)="showModalDialog()" class="edit-btn">Add new</a>
   </div>
   <div id="photos" >
     <div class="img" *ngFor="let item of state">
       <img src="{{item.photoURL}}" />
       <div class="btn">
         <div class="centering">
-          <a  type="button" pButton pRipple (click)="showConfirm(item._id)" label="Confirm"  class="delete-btn" >Delete</a>
+          <a *ngIf="isAdminBoolean" type="button" pButton pRipple (click)="showConfirm(item._id)" label="Confirm"  class="delete-btn" >Delete</a>
         </div>
       </div>
     </div>

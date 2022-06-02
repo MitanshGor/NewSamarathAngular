@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../../auth-behaviour.service';
 import { PublicService } from './../../service/public.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
@@ -17,6 +18,8 @@ import { DataService } from 'src/app/service/data-service';
 export class FacilityComponent implements OnInit {
 
 
+
+  isAdminBoolean:Boolean
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     // console.table()
@@ -48,7 +51,9 @@ export class FacilityComponent implements OnInit {
   state!: any[];
   image : File;
 
-  constructor(private primengConfig: PrimeNGConfig,private messageService: MessageService, private adminService:AdminService , private publicService : PublicService, private router : Router) {
+  constructor(private primengConfig: PrimeNGConfig,private messageService: MessageService, private adminService:AdminService , private publicService : PublicService, private router : Router,private authBehavior:AuthBehaviourService) {
+
+    this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
     this.getAllDataOfFacultyAndFacility();
      this.image = new File([""],""),

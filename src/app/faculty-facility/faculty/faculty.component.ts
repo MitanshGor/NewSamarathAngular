@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../../auth-behaviour.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
 import { Component, Input, OnInit } from '@angular/core';
@@ -17,9 +18,11 @@ export class FacultyComponent implements OnInit {
 
   state!: any[];;
   addFaculty : FormGroup;
-
+  isAdminBoolean:Boolean
   nameRegex = regexData.name;
-  constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService, private publicService :PublicService , private adminService: AdminService) {
+  constructor(private primengConfig: PrimeNGConfig, private messageService: MessageService, private publicService :PublicService , private adminService: AdminService,private authBehavior:AuthBehaviourService) {
+
+    this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
 
     this.getAllDataOfFacultyAndFacility();
 

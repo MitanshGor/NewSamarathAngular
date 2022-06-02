@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../auth-behaviour.service';
 import { NewsSubModel } from '../../interfaces/news-sub-model';
 import { Component, ElementRef } from '@angular/core';
 import { Renderer2, OnInit, Inject } from '@angular/core';
@@ -14,7 +15,7 @@ export class NewsModuleComponent {
   title="title";
 
   selectedNewsType="";
-
+  isAdminBoolean:Boolean
   data : any;
   clickNews(str:string){
 
@@ -25,7 +26,11 @@ export class NewsModuleComponent {
 
   }
 
-  constructor(private publicService:PublicService){}
+  constructor(private publicService:PublicService,private authBehavior:AuthBehaviourService){
+    this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
+
+
+  }
   getApiData : any;
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
