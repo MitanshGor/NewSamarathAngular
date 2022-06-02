@@ -101,8 +101,8 @@ this.isAdmin = this.authBehaviour.isAdmin.getValue()
       //  localStorage.setItem("authToken",JSON.stringify(res.data))
         // alert("login done");
         // this..authToken.next(resp.data.authToken)
-        this.authBeahviour.isAdmin.next(true)
-       // this.headersComponentComponent.ngOnInit()
+       this.authBeahviour.login_user(true)
+        // this.headersComponentComponent.ngOnInit()
         this.messageService.add({ key: 'toast', severity: 'success', summary: 'Successful Login', detail: res.message });
        setTimeout(() =>{
         this.router.navigateByUrl('/')

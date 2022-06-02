@@ -8,7 +8,7 @@ import { AuthBehaviourService } from '../auth-behaviour.service';
 })
 export class HeadersComponentComponent implements OnInit,OnChanges {
 
-  constructor(private authBehavior : AuthBehaviourService) { 
+  constructor(public authBehavior : AuthBehaviourService) { 
     this.isAdminBoolean = this.authBehavior.isAdmin.getValue()
     if(this.isAdminBoolean){
       this.loginButton="Logout"
@@ -43,5 +43,7 @@ export class HeadersComponentComponent implements OnInit,OnChanges {
     this.hamburger=!this.hamburger;
   }
 
-
+  logout(){
+    this.authBehavior.login_user(false);
+  }
 }

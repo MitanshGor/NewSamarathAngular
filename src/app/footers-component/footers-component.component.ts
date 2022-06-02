@@ -1,3 +1,4 @@
+import { AuthBehaviourService } from './../auth-behaviour.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FootersComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authBehavior : AuthBehaviourService) { }
 
   ngOnInit(): void {
   }
-
+  logout(){
+    this.authBehavior.login_user(false);
+  }
 }

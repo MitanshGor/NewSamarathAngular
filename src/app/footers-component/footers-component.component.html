@@ -4,12 +4,14 @@
                 <a [routerLink]="['']">Home</a>
                 <a [routerLink]="['gallery']">Gallery</a>
                 <a [routerLink]="['f&f']">Faculty and Facility</a>
-                <a [routerLink]="['adminList']">Admin List</a>
+                <a *ngIf='authBehavior.isLoggedIn|async' [routerLink]="['adminList']">Admin List</a>
             </div>
             <div>
                 <a  [routerLink]="['news']">News</a>
                 <a [routerLink]="['downloads']">Downloads</a>
-                <a [routerLink]="['login']" >Admin Login</a>
+                <a *ngIf='!(authBehavior.isLoggedIn|async)' [routerLink]="['login']" >Admin Login</a>
+                <a *ngIf='(authBehavior.isLoggedIn|async)' (click)="logout()" >Logout</a>
+                
                 <a [routerLink]="['contactUs']">Contact Us</a>
             </div>
     </div>
