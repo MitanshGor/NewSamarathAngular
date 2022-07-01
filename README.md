@@ -1,3 +1,6 @@
+ https://www.figma.com/proto/WcENnqVLJ70qJLxeGmy122/NewSamarth?page-id=0%3A1&node-id=1%3A2&viewport=241%2C48%2C0.07&scaling=scale-down-width&starting-point-node-id=1%3A2
+
+
 # NewSamarathSchoolFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
